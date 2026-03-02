@@ -13,6 +13,7 @@ import Program from "./Pages/Program";
 
 function App() {
   library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown);
+
   return (
     <>
       <Navbar />
