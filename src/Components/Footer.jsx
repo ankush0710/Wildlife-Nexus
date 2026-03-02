@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
@@ -79,36 +79,24 @@ const Footer = () => {
               </h1>
               <div className="text-start">
                 <ul className="flex flex-col gap-3">
-                  <Link to="/">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Home
-                    </li>
-                  </Link>
-                  <Link to="/Wildlife">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Wildlife
-                    </li>
-                  </Link>
-                  <Link to="/Program">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Programs
-                    </li>
-                  </Link>
-                  <Link to="/Blogs">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Blogs
-                    </li>
-                  </Link>
-                  <Link to="/join-our-team">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Join Our Team
-                    </li>
-                  </Link>
-                  <Link to="/contact-us">
-                    <li className="font-body text-white text-md hover:text-[#ECE7D1]">
-                      Contact Us
-                    </li>
-                  </Link>
+                  <NavLink to="/" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Home
+                  </NavLink>
+                  <NavLink to="/Wildlife" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Wildlife
+                  </NavLink>
+                  <NavLink to="/Program" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Programs
+                  </NavLink>
+                  <NavLink to="/Blogs" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Blogs
+                  </NavLink>
+                  <NavLink to="/join-our-team" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Join Our Team
+                  </NavLink>
+                  <NavLink to="/contact-us" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                    Contact Us
+                  </NavLink>
                 </ul>
               </div>
             </div>
