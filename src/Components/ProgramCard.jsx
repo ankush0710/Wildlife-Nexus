@@ -7,7 +7,7 @@ const ProgramCard = () => {
     <>
       <div
         id="program-card"
-        className="w-72 h-auto mx-3 p-2 rounded-lg flex flex-col gap-5 items-center border border-gray-300 bg-[#ECE7D1] md:w-auto md:h-2xl md:flex md:flex-row md:items-start"
+        className="w-76 h-auto mx-3 p-2 rounded-lg shadow-xl flex flex-col gap-5 items-center border border-gray-300 bg-[#ECE7D1] md:w-auto md:h-2xl md:flex md:flex-row md:items-start md:border-b-2"
       >
         <div
           id="card-image"
@@ -37,18 +37,19 @@ const ProgramCard = () => {
         </div>
 
         {/* button to see full detailed article of the respective project  */}
-        <div className="pb-10">
+        <div className="pb-10 mx-3 my-auto">
           <button
             type="submit"
             className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
           >
-            view details
+            <p className="text-nowrap">View Details
             <span>
               <FontAwesomeIcon
                 icon="fa-solid fa-arrow-down"
                 className="ps-5 group-hover:translate-y-1 transition duration-300"
               />
             </span>
+            </p>
           </button>
         </div>
       </div>
