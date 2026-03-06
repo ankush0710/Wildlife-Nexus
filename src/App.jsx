@@ -10,6 +10,7 @@ import Wildlife from "./Pages/Wildlife";
 import JoinTeam from "./Pages/JoinTeam";
 import ContactUs from "./Pages/ContactUs";
 import Program from "./Pages/Program";
+import ProgramDetails from "./Pages/ProgramDetails";
 
 function App() {
   library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown, faArrowDown);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Wildlife" element={<Wildlife/>}/>
           <Route path="/contact-us" element={<ContactUs/>}/>
           <Route path="/Program" element={<Program />} />
+          <Route path="/Program/:id" element={<ProgramDetails />} />
         </Routes>
       <Footer />
     </>
