@@ -62,7 +62,7 @@ const Program = () => {
               </div>
 
               {/* button to see full detailed article of the respective project  */}
-              <Link to={`/Program/id_${data.id}`} className="pb-10 mx-3 my-auto">
+              <Link to={`/Program/${data.id}`} className="pb-10 mx-3 my-auto">
                   <button
                     type="submit"
                     className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"

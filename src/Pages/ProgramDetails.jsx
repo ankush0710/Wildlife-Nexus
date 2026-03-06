@@ -3,23 +3,24 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 const PrgramDetails = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const ProgramData = useSelector((state)=>state.ProgramData);
 
-    const ProgramDetails = ProgramData.find((data)=>data.id === Number(id));
+    const ProgramDetails =  ProgramData.find((data) => data.id === Number(id));
 
-    if(!ProgramDetails){
+    if(!ProgramDetails || ProgramData.length === 0){
         return(
             <div className="w-full my-10 text-center">
-        <p className="font-body text-lg">Oops Something Went Wrong...</p>
-      </div>
-        )
+                <p className="font-body text-2xl text-red-500">Oops Something Went Wrong...</p>
+            </div>
+        );
     }
+
     return(
         <>
-        <div id='container' className='w-full h-screen'>
+        <div id='container' className='min-h-screen'>
             {/* header section  */}
-             <div id='heading' className='text-black'>{ProgramDetails.programName}</div>
+             <div id='heading' className='text-black text-xl'>{ProgramDetails.programName}</div>
 
              {/* description section  */}
              <div id='sub_conatainer'>

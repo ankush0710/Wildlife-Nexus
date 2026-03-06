@@ -2,7 +2,7 @@ import React from 'react';
 import {FETCH_PROGRAM_DATA} from '../action/actionType';
 
 const initialState = {
-    ProgramData : []
+    ProgramData : [],
 }
 
 const reducer = (state=initialState, action) => {
