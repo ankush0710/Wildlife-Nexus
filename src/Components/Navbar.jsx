@@ -127,7 +127,7 @@ const Navbar = () => {
             >
               Blogs
             </Link>
-            <Link
+            {/* <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/about-us"
               onClick={() => {
@@ -135,7 +135,7 @@ const Navbar = () => {
               }}
             >
               ABOUT US
-            </Link>
+            </Link> */}
             <Link
               className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
               to="/contact-us"
