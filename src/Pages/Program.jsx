@@ -43,7 +43,7 @@ const Program = () => {
             <ProgramCard key={data.id}>
               <div
                 id="card-image"
-                className="relative w-full h-70 md:h-50 md:w-xl"
+                className="relative w-full h-70 md:h-50 md:w-4xl"
               >
                 <img
                   src={data.imageUrl}

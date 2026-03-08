@@ -125,6 +125,15 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
+              Blogs
+            </Link>
+            <Link
+              className="font: font-body text-white text-2xl font-medium hover:text-[#ECE7D1]"
+              to="/about-us"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
               ABOUT US
             </Link>
             <Link
