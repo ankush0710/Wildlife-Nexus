@@ -88,7 +88,7 @@ const Footer = () => {
                   <NavLink to="/Program" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
                     Programs
                   </NavLink>
-                  <NavLink to="/Blog" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
+                  <NavLink to="/blog" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
                     Blogs
                   </NavLink>
                   <NavLink to="/join-our-team" className={({isActive}) => isActive ? 'font-body text-white underline underline-offset-4 text-md hover:text-[#ECE7D1]' : 'font-body text-white text-md hover:text-[#ECE7D1]'}>
