@@ -163,7 +163,6 @@ const Blog = () => {
         })}
       </div>
 
-
        {/* number and next, previous arrow  */}
         {BlogData.length > 0 && (
           <div
