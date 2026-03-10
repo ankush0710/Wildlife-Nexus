@@ -40,6 +40,7 @@ const Blog = () => {
           return (
             <>
               <div
+                key={data.id}
                 id="card"
                 className="w-full h-auto border px-6 rounded-xl bg-[#ECE7D1] md:max-w-sm"
               >
@@ -48,7 +49,7 @@ const Blog = () => {
                   id="heading"
                   className="text-center font-semibold font-heading text-3xl pt-5"
                 >
-                  First Blog
+                  {data.blogTitle}
                 </div>
                 <div className="border-b-2 border-gray-400 my-5"></div>
 
@@ -60,35 +61,32 @@ const Blog = () => {
                     className="relative w-full h-78 border border-gray-500 rounded-xl"
                   >
                     <img
-                      src={sample}
+                      src={data.imageUrl}
                       alt="sample-image"
                       className="w-full h-full object-cover rounded-xl"
                     />
                   </div>
                   <p className="font-heading text-xl font-bold">
                     Author :-
-                    <span className="font-body text-md font-normal">
-                      Ankush Kurvey
+                    <span className="font-body text-md font-normal ps-2">
+                      {data.author}
                     </span>
                   </p>
                   <p className="font-heading text-xl font-bold">
                     Last Update :-
-                    <span className="font-body text-md font-normal">
-                      Dec-1925
+                    <span className="font-body text-md font-normal ps-2">
+                      {data.lastupdate}
                     </span>
                   </p>
                   <p className="font-heading text-xl font-bold">
                     Description :-
-                    <span className="font-body text-md font-normal">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Vero sunt dolores veritatis cum cupiditate magni fuga
-                      cumque, tempore laboriosam, ratione dicta voluptates
-                      placeat culpa, accusantium alias eius facilis.
+                    <span className="font-body text-md font-normal ps-2">
+                      {data.description}
                     </span>
                   </p>
 
                   {/* button to see full detailed article of the respective project  */}
-                  <Link to="" className="py-5">
+                  <Link to={data.wedsiteUrl} className="py-5">
                     <button
                       type="submit"
                       className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-6 py-2 rounded-full cursor-pointer group hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
@@ -115,25 +113,25 @@ const Blog = () => {
                   <a href="#">
                     <FontAwesomeIcon
                       icon="fa-brands fa-facebook"
-                      className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
+                      className={data.facebook ? "text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800": "opacity-0"}
                     />
                   </a>
                   <a href="#">
                     <FontAwesomeIcon
                       icon="fa-brands fa-twitter"
-                      className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
+                      className={data.twitter ? "text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800": "opacity-0"}
                     />
                   </a>
                   <a href="#">
                     <FontAwesomeIcon
                       icon="fa-brands fa-instagram"
-                      className="text-red-400 text-sm border rounded-full p-2 hover:text-red-800"
+                      className={data.instagram ? "text-red-400 text-sm border rounded-full p-2 hover:text-red-800": "opacity-0"}
                     />
                   </a>
                   <a href="#">
                     <FontAwesomeIcon
                       icon="fa-brands fa-linkedin"
-                      className="text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800"
+                      className={data.linkdin ? "text-blue-500 text-sm border rounded-full p-2 hover:text-blue-800": "opacity-0"}
                     />
                   </a>
                 </div>
