@@ -10,16 +10,14 @@ const Blog = () => {
   const quotes = [
     {
       id: 1,
-      bgImage:
-        "https://www.tourmyindia.com/blog//wp-content/uploads/2025/09/Wildlife-Conservation-Reasons-to-Save-Wildlife.jpg",
+      bgImage: "https://t4.ftcdn.net/jpg/03/48/33/01/360_F_348330128_gbGvQ1OtIlz6FW0NwJmn7QofDDxNG3lm.jpg",
       quotes:
         "We forget, in a world completely transformed by man, that what we’re looking at is not necessarily the environment wildlife prefer, but the depleted remnant that wildlife is having to cope with: what it has is not necessarily what it wants.",
       author: "Isabell Tree, Wilding",
     },
     {
       id: 2,
-      bgImage:
-        "https://api-ecotourism.forest.kerala.gov.in/public/uploads/slotmaster_images/1744004542_duknow3.jpeg",
+      bgImage: "https://media.istockphoto.com/id/505722859/photo/deep-forest-waterfall-national-park-panoramic-view.jpg?s=612x612&w=0&k=20&c=8RcxLnoKE4ZESSJ364C-GOIOiUaD5sAFZAjkK4LwwfQ=",
       quotes:
         "the updated 2016 State of Nature report discovered that the UK has lost significantly more biodiversity over the long term than the world average. Ranked twenty-ninth lowest out of 218 countries, we are among the most nature-depleted countries in the world.",
       author: "Kedar dhepe",
@@ -237,8 +235,8 @@ const Blog = () => {
       )}
 
       {/* quotes section for some quotes for wildlife conservation */}
-      <h1 className="font-heading font-bold  text-center text-3xl text-black py-5">
-        Vision
+      <h1 className="font-heading font-bold  text-center text-3xl text-black py-4">
+        Quotes for Wildlife Conservation
       </h1>
 
       {quotes.map((q) => {
@@ -256,10 +254,10 @@ const Blog = () => {
               <div className="absolute inset-0 bg-black opacity-50 rounded-xl"></div>
             </div>
             <div id="quotes" className="relative z-10 p-5 md:p-10">
-              <p className="font-body text-lg text-gray-400 py-2">
+              <p className="font-body text-lg text-white py-2 md:text-center">
                 <FontAwesomeIcon
                   icon="fa-solid fa-quote-right"
-                  className="ps-3 pb-1 rotate-y-180 text-gray-400"
+                  className="ps-3 pb-1 rotate-y-180"
                 />
                 {q.quotes}
                 <FontAwesomeIcon
@@ -267,7 +265,7 @@ const Blog = () => {
                 className="ps-3 pb-1"
               />
               </p>
-              <p className="font-body font-semibold text-md text-gray-500 text-right pt-2 md:pt-10">
+              <p className="font-body font-semibold text-md text-white text-right pt-2 md:pt-10">
                 ~ {q.author}
               </p>
             </div>
