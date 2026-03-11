@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchWildlifeData } from "../redux/action/action";
 import Cards from "../Components/Cards";
@@ -7,10 +7,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Wildlife = () => {
   const dispatch = useDispatch();
   const WildlifeData = useSelector((state) => state.WildlifeData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardPerPage, setCardPerPage] = useState(9);
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
   }, [WildlifeData]);
+
+
+  //pagination logic start here
+  const pagination = useMemo(()=>{
+    
+  }, [])
 
   //if data is yet to come then loading text will display
   if (!WildlifeData || WildlifeData.length == 0) {
