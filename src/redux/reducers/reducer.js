@@ -1,9 +1,10 @@
 import React from 'react';
-import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA} from '../action/actionType';
+import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA, FETCH_WILDLIFE_DATA} from '../action/actionType';
 
 const initialState = {
     ProgramData : [],
     BlogData : [],
+    WildlifeData: [],
 }
 
 const reducer = (state=initialState, action) => {
@@ -20,7 +21,14 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 BlogData: action.payload,
-            }
+            };
+
+        case FETCH_WILDLIFE_DATA:
+            return {
+                ...state,
+                WildlifeData: action.payload,
+            };
+            
         default:
             return state;
     }
