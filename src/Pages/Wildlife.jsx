@@ -69,7 +69,7 @@ const Wildlife = () => {
   return (
     <>
       {/* //search bar and filter button */}
-      <div className="mx-10 text-center md: flex md:justify-between md:items-center md:gap-4">
+      <div className="mx-15 text-center flex flex-col items-center md:flex-row md:justify-between md:items-center md:gap-4">
         <button onClick={""} className="flex justify-center items-center gap-2 cursor-pointer">
           <FontAwesomeIcon icon="fa-solid fa-hand-point-left" className="text-2xl text-gray-500"/>
           <span className="font-heading font-semibold text-2xl text-gray-500">Back</span>
@@ -90,62 +90,22 @@ const Wildlife = () => {
             Search
           </button>
         </div>
-        {/* <el-dropdown class="inline-block">
-          <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-gray-300 px-3 py-2 text-sm font-semibold text-black inset-ring-1 inset-ring-white/5 hover:bg-gray-400">
-            Filter by Status
-            <svg
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              data-slot="icon"
-              aria-hidden="true"
-              class="-mr-1 size-5 text-gray-400"
-            >
-              <path
-                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </button>
 
-          <el-menu
-            anchor="bottom end"
-            popover
-            class="w-56 origin-top-right rounded-md bg-gray-800 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-          >
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden"
-              >
-                Account settings
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden"
-              >
-                Support
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden"
-              >
-                License
-              </a>
-              <form action="#" method="POST">
-                <button
-                  type="submit"
-                  class="block w-full px-4 py-2 text-left text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden"
-                >
-                  Sign out
-                </button>
-              </form>
-            </div>
-          </el-menu>
-        </el-dropdown> */}
+        {/* dropdown for filter the cards by species  */}
+        <div className="relative">
+          <div className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 rounded-xl cursor-pointer">
+          <span className="text-xl font-body font-bold text-gray-700">Species</span>
+          <FontAwesomeIcon icon="fa-solid fa-angle-down" className="text-xl text-gray-700"/>
+        </div>
+
+        {/* dropdown list  */}
+        <div className="border-2 border-gray-500 py-2 px-10 top-11 shadow-xl rounded-lg absolute z-10">
+          <p className="text-lg font-body font-semibold text-center text-gray-800 cursor-pointer hover:bg-gray-400 hover:px-4">Endangered</p>
+        </div>
+        </div>
       </div>
 
-      {/* main content sectio  */}
+      {/* main content section  */}
       <div className="w-full h-auto my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {currentCard.map((Wdata) => {
           return (
