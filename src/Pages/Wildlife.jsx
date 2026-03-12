@@ -119,7 +119,7 @@ const Wildlife = () => {
       {WildlifeData.length > 0 && (
         <div
           id="pagination"
-          className="flex justify-center text-xl mt-5 space-x-5 font-heading font-semibold mb-10"
+          className="flex justify-center flex-nowrap text-xs mt-5 space-x-5 font-heading font-semibold mb-10 md:text-xl"
         >
           <span>
             <FontAwesomeIcon
