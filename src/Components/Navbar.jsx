@@ -15,7 +15,7 @@ const Navbar = () => {
         className={
           isOpen
             ? "hidden"
-            : "relative z-20 opacity-50 bg-[#111F35] w-80 py-3 px-6 rounded-full mx-auto my-10 md:w-2xl md:px-10 hover:opacity-100"
+            : "relative z-20 opacity-50 bg-[#111F35] w-80 py-3 px-6 rounded-full mx-auto my-10 hover:opacity-100 md:w-2xl md:px-10"
         }
       >
         <div id="navbar" className="flex justify-between items-center">

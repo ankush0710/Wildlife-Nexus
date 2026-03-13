@@ -207,7 +207,7 @@ const Wildlife = () => {
       {WildlifeData.length > 0 && (
         <div
           id="pagination"
-          className="flex justify-center flex-nowrap text-xs mt-5 space-x-5 font-heading font-semibold mb-10 md:text-xl"
+          className="flex justify-center flex-nowrap text-xl  mt-5 space-x-5 font-heading font-semibold mb-10"
         >
           <span>
             <FontAwesomeIcon
@@ -220,21 +220,9 @@ const Wildlife = () => {
               onClick={() => selectPageHandle(currentPage - 1)}
             />
           </span>
-          {[...Array.from({ length: TotalPage })].map((_, i) => {
-            return (
-              <span
-                key={i}
-                className={
-                  currentPage == i + 1
-                    ? "text-black transform translate scale-140 ease-in-out duration-300 cursor-pointer"
-                    : "text-gray-400 cursor-pointer"
-                }
-                onClick={() => selectPageHandle(i + 1)}
-              >
-                {i + 1}
-              </span>
-            );
-          })}
+          <span className="text-black transform translate scale-140 ease-in-out duration-300">
+            {currentPage} / {TotalPage}
+          </span>
           <span>
             <FontAwesomeIcon
               icon="fa-solid fa-angle-right"
