@@ -18,7 +18,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <div className='flex flex-col min-h-screen'>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard/>}/>
           <Route path="/Home" element={<Dashboard/>}/>
@@ -30,6 +31,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
         </Routes>
       <Footer />
+      </div>
     </>
   )
 }
