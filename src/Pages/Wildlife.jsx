@@ -11,8 +11,8 @@ const Wildlife = () => {
   const [cardPerPage, setCardPerPage] = useState(9);
   const [search, setSearch] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
-  const [status, setStatus] = useState("");
-
+  const [isHidden, setIsHidden] = useState(true);
+  const [searchStatus, setSearchStatus] = useState("");
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
@@ -68,40 +68,76 @@ const Wildlife = () => {
 
   return (
     <>
-      {/* //search bar and filter button */}
-      <div className="mx-15 text-center flex flex-col items-center md:flex-row md:justify-between md:items-center md:gap-4">
-        <button onClick={""} className="flex justify-center items-center gap-2 cursor-pointer">
-          <FontAwesomeIcon icon="fa-solid fa-hand-point-left" className="text-2xl text-gray-500"/>
-          <span className="font-heading font-semibold text-2xl text-gray-500">Back</span>
-        </button>
-        
-        <div className="relative">
-          <input
-            type="text"
-            value={search}
-            placeholder="Search by name"
-            className="py-2 px-15 border border-gray-500 rounded-full bg-gray-300 focus:border-gray-600"
-            onChange={(e) => setSearch(e.target.value)}
+      {/* button for back to default state  */}
+      <div className="mx-3 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
+        <button
+          onClick={""}
+          className="flex justify-center items-center gap-2 cursor-pointer"
+        >
+          <FontAwesomeIcon
+            icon="fa-solid fa-hand-point-left"
+            className="text-2xl text-gray-500"
           />
-          <button
-            onClick={handleSearch}
-            className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-[#111F35] cursor-pointer"
-          >
-            Search
-          </button>
-        </div>
+          <span className="font-heading font-semibold text-2xl text-gray-500">
+            Back
+          </span>
+        </button>
 
-        {/* dropdown for filter the cards by species  */}
-        <div className="relative">
-          <div className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 rounded-xl cursor-pointer">
-          <span className="text-xl font-body font-bold text-gray-700">Species</span>
-          <FontAwesomeIcon icon="fa-solid fa-angle-down" className="text-xl text-gray-700"/>
-        </div>
+        <div className="flex flex-col gap-5 items-center justify-between md:flex-1 md:flex-row">
+          {/* //search bar and filter button */}
+          <div className="relative mx-auto">
+            <input
+              type="text"
+              value={search}
+              placeholder="Search by name"
+              className="py-2 px-5 border border-gray-500 rounded-full bg-gray-300 focus:border-gray-600 md:px-8 lg:px-10"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button
+              onClick={handleSearch}
+              className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-[#111F35] cursor-pointer"
+            >
+              Search
+            </button>
+          </div>
 
-        {/* dropdown list  */}
-        <div className="border-2 border-gray-500 py-2 px-10 top-11 shadow-xl rounded-lg absolute z-10">
-          <p className="text-lg font-body font-semibold text-center text-gray-800 cursor-pointer hover:bg-gray-400 hover:px-4">Endangered</p>
-        </div>
+          {/* dropdown for filter the cards by species  */}
+          <div className="relative flex flex-col justify-center items-center">
+            <div
+              onClick={() => setIsHidden(!isHidden)}
+              className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 cursor-pointer"
+            >
+              <span className="text-xl font-body font-bold text-gray-700">
+                Species
+              </span>
+              <FontAwesomeIcon
+                icon="fa-solid fa-angle-down"
+                className={isHidden ? "text-xl text-gray-700 transition transform rotate-0 ease-in-out duration-300" : "text-xl text-gray-700 transition transform rotate-180 ease-in-out duration-300 "}
+              />
+            </div>
+
+            {/* dropdown list  */}
+            <div
+              className={
+                isHidden
+                  ? "hidden"
+                  : "border-2 border-gray-300 top-12 shadow-xl absolute z-30"
+              }
+            >
+              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+                Endangered
+              </p>
+              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+                Vulnerable
+              </p>
+              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+                Least Concern
+              </p>
+              <p className="text-lg font-body font-semibold bg-white border-1 border-gray-300 text-center text-nowrap text-gray-800 cursor-pointer py-2 px-13 hover:bg-gray-400">
+                Near Threatened
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -158,7 +194,7 @@ const Wildlife = () => {
                   <span className="font-body text-lg ps-5">{Wdata.height}</span>
                 </h1>
                 <h1 className="text-white font-heading text-xl">
-                  Speed (in kms) :
+                  Speed (in KM) :
                   <span className="font-body text-lg ps-5">{Wdata.speed}</span>
                 </h1>
               </div>
@@ -166,6 +202,8 @@ const Wildlife = () => {
           );
         })}
       </div>
+
+      {/* Pagination based on component length  */}
       {WildlifeData.length > 0 && (
         <div
           id="pagination"
