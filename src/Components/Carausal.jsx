@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Cards from "./Cards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Carausal = ({ carousalData }) => {

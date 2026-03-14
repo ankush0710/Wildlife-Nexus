@@ -130,7 +130,7 @@ const Dashboard = () => {
 
       {/* core initiatives section  */}
       <div id="core-initiative" className="">
-
+        
       </div>
     </>
   );

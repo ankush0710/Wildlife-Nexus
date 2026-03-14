@@ -238,7 +238,6 @@ const Blog = () => {
       <h1 className="font-heading font-bold  text-center text-3xl text-black py-4">
         Quotes for Wildlife Conservation
       </h1>
-
       {quotes.map((q) => {
         return (
           <div
