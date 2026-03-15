@@ -78,7 +78,7 @@ export const FetchGovProgramData = () => {
             })
         }
         catch(error){
-            console.log("FETCH_GOV_PROGRAM_DATA: ", FETCH_GOV_PROGRAM_DATA)
+            console.log("FETCH_GOV_PROGRAM_DATA: ", FETCH_GOV_PROGRAM_DATA);
         }
     }
 }
