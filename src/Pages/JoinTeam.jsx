@@ -32,16 +32,16 @@ const JoinTeam = () => {
     }
 
     handleCard();
-    window.addEventListener("cards", handleCard);
+    window.addEventListener("resize", handleCard);
 
-    return () => window.removeEventListener("cards", handleCard)
+    return () => window.removeEventListener("resize", handleCard)
   }, [])
 
   const totalCards = Math.ceil(govProgram.length/cardsPerView);
   return (
     <>
       {/* bg -image and intro of page  */}
-      <div id="bg-image" className="w-full min-h-screen">
+      <div id="bg-image" className="w-full min-h-[80vh]">
         <div
           id="banner-image"
           style={{ backgroundImage: `url('${bgImage}')` }}
@@ -71,7 +71,7 @@ const JoinTeam = () => {
             {govProgram.map((gp) => {
           return (
             <>
-              <div key={gp.id} className="relative min-w-full h-auto mb-10 md:w-1/2 border-1 border-gray-400 rounded-xl lg:w-1/3">
+              <div key={gp.id} className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 h-auto mb-10 border-1 border-gray-400 rounded-xl">
                 <div id="crad-image" className="w-full h-75 rounded-t-xl">
                   <img src={gp.imageUrl} alt="card-image" className="w-full h-full object-cover object-center rounded-t-xl"/>
                 </div>
@@ -116,7 +116,7 @@ const JoinTeam = () => {
         })}
         </div>
       </JoinTeamCard>
-      <Pagination setCurrent={setCurrent} current={current} totalCards={totalCards}/>
+      <Pagination setCurrent={setCurrent} current={current} totalCards={govProgram.length}/>
 
     </>
   );
