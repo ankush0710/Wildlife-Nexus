@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FetchGovProgramData } from "../redux/action/action";
 import bgImage from "../assets/Giant-panda.webp";
 
 const JoinTeam = () => {
+    const dispatch = useDispatch();
+    const govProgram = useSelector((state) => state.GovProgram);
+
+  //disppatch the funtion and render the data
+    useEffect(()=>{
+        dispatch(FetchGovProgramData());
+    }, [dispatch]);
   return (
     <>
     {/* bg -image and intro of page  */}
