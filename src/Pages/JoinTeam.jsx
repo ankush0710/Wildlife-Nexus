@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FetchGovProgramData, FetchTeamData } from "../redux/action/action";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import JoinTeamCard from "../Components/JoinTeamCard";
 import Pagination from "../Components/Pagination";
 import ProgramCard from "../Components/ProgramCard";
 import Chart from "../Components/Chart";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import bgImage from "../assets/Giant-panda.webp";
 
 const JoinTeam = () => {
@@ -15,6 +16,7 @@ const JoinTeam = () => {
   const teamData = useSelector((state) => state.TeamData);
   const rescueData = useSelector((state) => state.RescueData);
   const celebrityData = useSelector((state) => state.CelebrityData);
+  const volunteerData = useSelector((state)=>state.VolunteerData)
   const [current, setCurrent] = useState(0);
   const [currentTeamCard, setCurrentTeamCard] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
@@ -154,7 +156,7 @@ const JoinTeam = () => {
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* carausal section for Meet Our Team  */}
-      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Meet Our Team Leaders
       </h1>
       <JoinTeamCard>
@@ -212,10 +214,10 @@ const JoinTeam = () => {
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* Our Work section which highlight the work in form of charts */}
-      <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <h1 className="mb-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Our Work
       </h1>
-      <p className="font-body text-xl text-center font-semibold">
+      <p className="font-body text-xl text-center font-semibol px-3">
         This is how we contribute towards wildlife conservation by rescued many
         different species in past 6 years.
       </p>
@@ -226,8 +228,8 @@ const JoinTeam = () => {
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
-      {/* Our Work section which highlight the work in form of charts */}
-      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      {/* This section display those celebrities who connect with us */}
+      <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Some Famous Personality also Work With Us
       </h1>
       <div id="persnality" className="mb-10">
@@ -271,6 +273,209 @@ const JoinTeam = () => {
             </>
           );
         })}
+      </div>
+
+      {/* line for seperation  */}
+      <div className="border-1 border-gray-400 mb-5 mx-3"></div>
+
+      {/* This section contains the form and other information */}
+      <div className="mx-3">
+        <h1 className="my-5 mx-3 text-2xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+          Now it's Your turn to take a first step and contribute to Wildlife
+          Conservation
+        </h1>
+        <p className="font-body text-lg text-gray-600 py-2 text-center">
+          <FontAwesomeIcon
+            icon="fa-solid fa-quote-right"
+            className="ps-3 pb-1 rotate-y-180"
+          />
+          If you have any idea, any innovation or want to contribute to our
+          country or our ecosystem, It's a great oppertunity to join our team
+          and work with us.
+          <FontAwesomeIcon
+            icon="fa-solid fa-quote-right"
+            className="ps-3 pb-1"
+          />
+        </p>
+      </div>
+      <div id="main-container" className="px-auto w-full h-auto lg:flex">
+        {/* address of offices in INDIA and LA  */}
+        <div
+          id="cards-section"
+          className="flex flex-col gap-8 mx-3 my-5 flex-1"
+        >
+          {
+            volunteerData.map((vd)=>{
+              return(
+                <>
+                <div
+            id={vd.id}
+            style={{ backgroundImage: `url('${vd.bgImage}')` }}
+            className="relative w-full h-48  rounded-lg shadow-lg p-4 bg-cover bg-center"
+          >
+            <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+            <p className="absolute top-1/2 left-10 font-body text-lg text-white font-semibold">
+              <span className="text-2xl">{vd.volunteer}+ </span> Volunteers works in India
+            </p>
+          </div>
+                </>
+              )
+            })
+          }
+        </div>
+
+        {/* form to where user enter thier details  */}
+        <div id="form">
+          {/* contact form for contact details  */}
+          <Formik>
+            <div id="contact-form" className="relative mt-10 md:flex-1">
+              <h1 className="font-heading text-3xl font-bold text-center">
+                Connect with Us
+              </h1>
+              <div
+                id="contact-form"
+                className="bg-[#ECE7D1] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
+              >
+                <Form>
+                  <div className="md:flex md:gap-4">
+                    {/* input box for first name  */}
+                    <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
+                      <Field
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                        placeholder=""
+                      />
+                      <ErrorMessage
+                        name="firstName"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
+                      <label
+                        for="firstName"
+                        className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                      >
+                        First Name
+                      </label>
+                    </div>
+
+                    {/* input box for last name  */}
+                    <div className="relative z-0 w-full mt-3 group md:flex-1">
+                      <Field
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                        placeholder=""
+                      />
+                      <ErrorMessage
+                        name="lastName"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
+                      <label
+                        for="lastName"
+                        className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                      >
+                        Last Name
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* input box for email  */}
+                  <div className="relative z-0 w-full mb-5 mt-3 group">
+                    <Field
+                      type="email"
+                      name="email"
+                      id="email"
+                      className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                      placeholder=""
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
+                    <label
+                      for="email"
+                      className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                    >
+                      Email
+                    </label>
+                  </div>
+
+                  {/* input box for contact number  */}
+                  <div className="relative z-0 w-full mb-5 mt-3 group">
+                    <Field
+                      type="number"
+                      name="contactNumber"
+                      id="contactNumber"
+                      className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                      placeholder=""
+                    />
+                    <ErrorMessage
+                      name="contactNumber"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
+                    <label
+                      for="contactNumber"
+                      className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                    >
+                      Contact Number
+                    </label>
+                  </div>
+
+                  {/* message for query  */}
+                  <div className="relative z-0 w-full mb-5 mt-3 group">
+                    <Field
+                      as="textarea"
+                      id="message"
+                      name="message"
+                      rows="4"
+                      className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
+                      placeholder="Your Query for us ...."
+                    />
+                    <ErrorMessage
+                      name="message"
+                      component="div"
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
+
+                  {/* checkbox for terms and condition  */}
+                  <div className="flex items-start mb-4 mt-3">
+                    <input
+                      id="default-checkbox"
+                      type="checkbox"
+                      value=""
+                      className="w-8 h-8 border-2 border-[#562F00] rounded-xs"
+                    />
+                    <label
+                      for="default-checkbox"
+                      className="font-body select-none ms-2 text-sm font-medium text-[#562F00]"
+                    >
+                      By submitting this form, I agree to the collection and use
+                      my personla data as per the privacy Policy for marketing
+                      purpose.
+                    </label>
+                  </div>
+
+                  {/* form submitt button  */}
+                  <div className="absolute right-0 px-10">
+                    <button
+                      type="submit"
+                      className="text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-8 py-2 rounded-full hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </Form>
+              </div>
+            </div>
+          </Formik>
+        </div>
       </div>
     </>
   );

@@ -82,6 +82,24 @@ const initialState = {
             Work: "Giorgia Meloni's government has taken a contradictory stance on animal issues, focusing on strict population control for wildlife while advancing animal welfare laws. Her administration authorized hunting wild boar in urban areas and tightened laws against animal cruelty, including banning puppy yoga, aimed at strengthening animal protection.",
             imageUrl: "https://c8.alamy.com/comp/2YFARTP/italian-premier-giorgia-meloni-pets-a-dog-during-the-celebrations-for-the-day-of-national-unity-and-the-armed-forces-at-the-altare-della-patria-monument-in-rome-monday-nov-4-2024-cecilia-fabianolapresse-via-ap-2YFARTP.jpg",
         }
+    ],
+
+    VolunteerData : [
+        {
+            id:1,
+            volunteer: "20,000",
+            bgImage: "https://thumbs.dreamstime.com/b/african-elephant-bull-walking-sand-road-wilderness-32046828.jpg"
+        },
+        {
+            id:2,
+            volunteer: "7000",
+            bgImage: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG"
+        },
+        {
+            id:3,
+            volunteer: "13,000",
+            bgImage: "https://en.nabu.de/imperia/md/nabu/images/international/asien/230426-nabu-saiga-antelope-p-romanov.jpeg"
+        },
     ]
 }
 
