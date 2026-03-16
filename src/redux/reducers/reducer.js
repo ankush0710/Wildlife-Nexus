@@ -1,11 +1,12 @@
 import React from 'react';
-import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA, FETCH_WILDLIFE_DATA, FETCH_GOV_PROGRAM_DATA} from '../action/actionType';
+import {FETCH_BLOG_DATA, FETCH_PROGRAM_DATA, FETCH_WILDLIFE_DATA, FETCH_GOV_PROGRAM_DATA, FETCH_TEAM_DATA} from '../action/actionType';
 
 const initialState = {
     ProgramData : [],
     BlogData : [],
     WildlifeData: [],
     GovProgram: [],
+    TeamData : [],
 }
 
 const reducer = (state=initialState, action) => {
@@ -34,6 +35,12 @@ const reducer = (state=initialState, action) => {
             return{
                 ...state,
                 GovProgram: action.payload,
+            }
+
+        case FETCH_TEAM_DATA:
+            return{
+                ...state,
+                TeamData: action.payload,
             }
             
         default:
