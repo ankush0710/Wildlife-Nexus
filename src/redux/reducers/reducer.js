@@ -11,7 +11,7 @@ const initialState = {
         {
             id:1,
             year: 2020,
-            species: 180,
+            MarineSpecies: 180,
             WildlifeSpecies: 131,
             BirdsSpecies: 155,
         },
@@ -32,7 +32,7 @@ const initialState = {
         {
             id:4,
             year:2023,
-            species: 240,
+            MarineSpecies: 240,
             WildlifeSpecies: 202,
             BirdsSpecies: 185,
              
@@ -40,14 +40,14 @@ const initialState = {
         {
             id:5,
             year:2024,
-            species:260,
+            MarineSpecies:260,
             WildlifeSpecies: 211,
             BirdsSpecies: 250,
         },
         {
             id:6,
             year:2025,
-            species:300,
+            MarineSpecies:300,
             WildlifeSpecies: 184,
             BirdsSpecies: 305,
         },
