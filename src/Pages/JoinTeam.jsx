@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchGovProgramData } from "../redux/action/action";
 import JoinTeamCard from "../Components/JoinTeamCard";
@@ -16,28 +17,25 @@ const JoinTeam = () => {
     dispatch(FetchGovProgramData());
   }, [dispatch]);
 
-
   //displaying cards in different device size
-  useEffect(()=>{
+  useEffect(() => {
     const handleCard = () => {
-        if(window.innerWidth >= 1024){
-            setCardsPerView(3);
-        }
-        else if(window.innerWidth >= 768){
-            setCardsPerView(2);
-        }
-        else{
-            setCardsPerView(1)
-        }
-    }
+      if (window.innerWidth >= 1024) {
+        setCardsPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(1);
+      }
+    };
 
     handleCard();
     window.addEventListener("resize", handleCard);
 
-    return () => window.removeEventListener("resize", handleCard)
-  }, [])
+    return () => window.removeEventListener("resize", handleCard);
+  }, []);
 
-  const totalCards = Math.ceil(govProgram.length/cardsPerView);
+  const totalCards = Math.ceil(govProgram.length / cardsPerView);
   return (
     <>
       {/* bg -image and intro of page  */}
@@ -55,69 +53,84 @@ const JoinTeam = () => {
           </div>
         </div>
       </div>
-    
-        {/* line for seperation  */}
+
+      {/* line for seperation  */}
       <div className="border-1 border-gray-400 my-5 mx-3"></div>
 
       {/* carausal section for goverment initiatives and Program  */}
       <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
         Goverment Initiatives
       </h1>
-      <JoinTeamCard>
-        <div className={`flex gap-4 transition-transform ease-in-out duration-400`}
-          style={{
-            transform: `translateX(-${current * 100}%)`,
-          }}>
-            {govProgram.map((gp) => {
-          return (
-            <>
-              <div key={gp.id} className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 h-auto mb-10 border-1 border-gray-400 rounded-xl">
-                <div id="crad-image" className="w-full h-75 rounded-t-xl">
-                  <img src={gp.imageUrl} alt="card-image" className="w-full h-full object-cover object-center rounded-t-xl"/>
-                </div>
-                <div className="border-1 border-gray-400 mx-4 "></div>
-                <div id="card-content" className="p-5 space-y-3">
-                  <div className="flex justify-between">
+        <JoinTeamCard>
+          
+      <div
+        className={`flex gap-4 transition-transform ease-in-out duration-400`}
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+        }}
+      >
+          {govProgram.map((gp) => {
+            return (
+              <>
+                <div
+                  key={gp.id}
+                  className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
+                >
+                  <div id="crad-image" className="w-full h-75 rounded-t-xl">
+                    <img
+                      src={gp.imageUrl}
+                      alt="card-image"
+                      className="w-full h-full object-cover object-center rounded-t-xl"
+                    />
+                  </div>
+                  <div className="border-1 border-gray-400 mx-4 "></div>
+                  <div id="card-content" className="p-5 space-y-3">
+                    <div className="flex justify-between">
+                      <p className="font-heading font-semibold text-md text-black">
+                        Project Name:{" "}
+                        <span className="font-body text-md text-gray-600">
+                          {gp.programName}
+                        </span>
+                      </p>
+                      <p className="font-heading font-semibold text-md text-black">
+                        Country:{" "}
+                        <span className="font-body text-md text-gray-600">
+                          {gp.country}
+                        </span>
+                      </p>
+                    </div>
                     <p className="font-heading font-semibold text-md text-black">
-                      Project Name:{" "}
+                      Launched Year:{" "}
                       <span className="font-body text-md text-gray-600">
-                        {gp.programName}
+                        {gp.year}
                       </span>
                     </p>
                     <p className="font-heading font-semibold text-md text-black">
-                      Country:{" "}
+                      About:{" "}
                       <span className="font-body text-md text-gray-600">
-                        {gp.country}
+                        {gp.description}
+                      </span>
+                    </p>
+                    
+                    <p className="font-heading font-semibold text-md text-black">
+                      Department:{" "}
+                      <span className="font-body text-md text-gray-600">
+                        {gp.goverment}
                       </span>
                     </p>
                   </div>
-                  <p className="font-heading font-semibold text-md text-black">
-                    Launched Year:{" "}
-                    <span className="font-body text-md text-gray-600">
-                      {gp.year}
-                    </span>
-                  </p>
-                  <p className="font-heading font-semibold text-md text-black">
-                    About:{" "}
-                    <span className="font-body text-md text-gray-600">
-                      {gp.description}
-                    </span>
-                  </p>
-                  <p className="font-heading font-semibold text-md text-black">
-                    Department:{" "}
-                    <span className="font-body text-md text-gray-600">
-                      {gp.goverment}
-                    </span>
-                  </p>
                 </div>
-              </div>
-            </>
-          );
-        })}
-        </div>
-      </JoinTeamCard>
-      <Pagination setCurrent={setCurrent} current={current} totalCards={govProgram.length}/>
-
+              </>
+            );
+          })}
+          </div>
+          <Pagination
+            setCurrent={setCurrent}
+            current={current}
+            totalCards={totalCards}
+          />
+        </JoinTeamCard>
+      
     </>
   );
 };

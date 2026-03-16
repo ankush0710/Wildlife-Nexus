@@ -25,11 +25,11 @@ const Pagination = ({ totalCards, current, setCurrent }) => {
 
   return (
     <>
-      <div className="absolute top-0 h-full w-full flex justify-between items-center text-black px-5">
-        <button onClick={prevSlide} className="text-xl md:text-2xl">
+      <div className="absolute inset-0 h-full w-full flex justify-between items-center text-black px-5">
+        <button onClick={prevSlide} className="absolute left-4 top-1/2 text-xl md:text-4xl">
           <FontAwesomeIcon icon="fa-solid fa-angle-left" />
         </button>
-        <button onClick={nextSlide} className="text-xl md:text-2xl">
+        <button onClick={nextSlide} className="absolute right-4 top-1/2 text-xl md:text-4xl">
           <FontAwesomeIcon icon="fa-solid fa-angle-right" />
         </button>
       </div>
