@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchGovProgramData } from "../redux/action/action";
+import { FetchGovProgramData, FetchTeamData } from "../redux/action/action";
 import JoinTeamCard from "../Components/JoinTeamCard";
 import Pagination from "../Components/Pagination";
 import bgImage from "../assets/Giant-panda.webp";
@@ -9,12 +9,19 @@ import bgImage from "../assets/Giant-panda.webp";
 const JoinTeam = () => {
   const dispatch = useDispatch();
   const govProgram = useSelector((state) => state.GovProgram);
+  const teamData = useSelector((state) => state.TeamData);
   const [current, setCurrent] = useState(0);
+  const [currentTeamCard, setCurrentTeamCard] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
 
-  //disppatch the funtion and render the data
+  //disppatch the funtion and render the goverment program data
   useEffect(() => {
     dispatch(FetchGovProgramData());
+  }, [dispatch]);
+
+  //dispatch the funtion and render the team-mates data
+  useEffect(() => {
+    dispatch(FetchTeamData());
   }, [dispatch]);
 
   //displaying cards in different device size
@@ -36,6 +43,8 @@ const JoinTeam = () => {
   }, []);
 
   const totalCards = Math.ceil(govProgram.length / cardsPerView);
+  const teamCards = Math.ceil(teamData.length / cardsPerView);
+  
   return (
     <>
       {/* bg -image and intro of page  */}
@@ -137,26 +146,26 @@ const JoinTeam = () => {
 
         {/* carausal section for Meet Our Team  */}
       <h1 className="mb-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
-        Goverment Initiatives
+        Meet Our Team Leaders
       </h1>
         <JoinTeamCard>
           
       <div
         className={`flex gap-4 transition-transform ease-in-out duration-400`}
         style={{
-          transform: `translateX(-${current * 100}%)`,
+          transform: `translateX(-${currentTeamCard * 100}%)`,
         }}
       >
-          {govProgram.map((gp) => {
+          {teamData.map((td) => {
             return (
               <>
                 <div
-                  key={gp.id}
+                  key={td.id}
                   className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
                 >
-                  <div id="crad-image" className="w-full h-75 rounded-t-xl">
+                  <div id="crad-image" className="w-full h-80 rounded-t-xl">
                     <img
-                      src={gp.imageUrl}
+                      src={td.imageUrl}
                       alt="card-image"
                       className="w-full h-full object-cover object-center rounded-t-xl"
                     />
@@ -165,36 +174,17 @@ const JoinTeam = () => {
                   <div id="card-content" className="p-5 space-y-3">
                     <div className="flex justify-between">
                       <p className="font-heading font-semibold text-md text-black">
-                        Project Name:{" "}
+                        Project Name: {""}
                         <span className="font-body text-md text-gray-600">
-                          {gp.programName}
-                        </span>
-                      </p>
-                      <p className="font-heading font-semibold text-md text-black">
-                        Country:{" "}
-                        <span className="font-body text-md text-gray-600">
-                          {gp.country}
+                          {td.Name}
                         </span>
                       </p>
                     </div>
-                    <p className="font-heading font-semibold text-md text-black">
-                      Launched Year:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {gp.year}
-                      </span>
-                    </p>
-                    <p className="font-heading font-semibold text-md text-black">
-                      About:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {gp.description}
-                      </span>
-                      <Link to="/Program" className="ps-2 text-blue-500 text-md font-light hover:cursor-pointer hover:text-blue-800">Read More...</Link>
-                    </p>
                     
                     <p className="font-heading font-semibold text-md text-black">
-                      Department:{" "}
+                      Year Of experience: {" "}
                       <span className="font-body text-md text-gray-600">
-                        {gp.goverment}
+                        {td.experience}+ years
                       </span>
                     </p>
                   </div>
@@ -204,9 +194,9 @@ const JoinTeam = () => {
           })}
           </div>
           <Pagination
-            setCurrent={setCurrent}
-            current={current}
-            totalCards={totalCards}
+            setCurrent={setCurrentTeamCard}
+            current={currentTeamCard}
+            totalCards={teamCards}
           />
         </JoinTeamCard>
       
