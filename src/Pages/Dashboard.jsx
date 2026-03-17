@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carausal from "../Components/Carausal";
 import natureImage from "../assets/nature-pengiune.webp";
 import climateImage from "../assets/climate-and-wildlife.webp";
+import initiativeImage from "../assets/initiative-bg-image.jpg";
 import Pagination from "../Components/Pagination";
 import bannerVideo from "../assets/bannerVideo.mp4";
 
@@ -12,6 +13,7 @@ const Dashboard = () => {
   const carousalData = useSelector((state) => state.CarousalData);
   const informationData = useSelector((state) => state.InformationData);
   const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData)
+  const initiatives = useSelector((state) => state.Initiative);
   const [current, setCurrent] = useState(0);
 
   return (
@@ -110,7 +112,10 @@ const Dashboard = () => {
             id="image-container flex-1"
             style={{ backgroundImage: `url('${natureImage}')` }}
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
-          ></div>
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+
+          </div>
           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
               Why Nature and Wildlife Conservation is important ?
@@ -148,9 +153,14 @@ const Dashboard = () => {
         <div className="w-full mb-10 md:mt-5 md:flex md:justify-center md:flex-row-reverse">
           <div
             id="image-container flex-1"
-            style={{ backgroundImage: `url('${climateImage}')` }}
+            style={{ backgroundImage: `url('${climateImage}')`, 
+             }}
+            
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
-          ></div>
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+
+          </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
               How Climate Change affects Wildlife ?
@@ -184,13 +194,15 @@ const Dashboard = () => {
       </section>
 
       {/* This section describes the core initiatves towards wildlife conservation*/}
-      <section id="ClimateAndWildlife">
-        <div className="w-full mb-10 md:mt-5 md:flex md:justify-center md:flex-row-reverse">
+      <section id="CoreInitiative">
+        <div className="w-full mb-10 md:mt-5 md:flex md:justify-center ">
           <div
             id="image-container flex-1"
-            style={{ backgroundImage: `url('${climateImage}')` }}
+            style={{ backgroundImage: `url('${initiativeImage}')` }}
             className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
-          ></div>
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+          </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
               How Climate Change affects Wildlife ?
