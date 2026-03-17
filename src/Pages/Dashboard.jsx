@@ -13,8 +13,9 @@ const Dashboard = () => {
   const carousalData = useSelector((state) => state.CarousalData);
   const informationData = useSelector((state) => state.InformationData);
   const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData)
-  const initiatives = useSelector((state) => state.Initiative);
+  const initiatives = useSelector((state) => state.Initiatives);
   const [current, setCurrent] = useState(0);
+  const [isShown, setIsShown] = useState(null);
 
   return (
     <>
@@ -204,27 +205,27 @@ const Dashboard = () => {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
-            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
+            <h1 className="font-heading pb-10 text-gray-500 text-2xl text-center font-bold lg:text-4xl">
               Core Initiatives 
             </h1>
-            {initiatives.map((i) => {
+            {
+            initiatives.map((i) => {
               return (
                 <>
                 <p className="p-3">
                   <FontAwesomeIcon
                     icon="fa-solid fa-check-double"
-                    className="text-[#111F35] text-2xl font-bold"
+                    className="text-[#111F35] text-xl font-bold"
                   />
-                  <span className="text-gray-600 text-lg font-heading font-semibold px-3">
+                  <span className="text-gray-600 text-xl font-heading font-semibold px-3 cursor-pointer hover:text-2xl hover:text-[#]" onMouseEnter={() => setIsShown(i.id)} onMouseLeave={() => setIsShown(null)}>
                     {i.initiative} 
                   </span>
                 </p>
-                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
-                <p className="pl-15 text-gray-600 text-lg font-heading">Example:-</p>
-                <div className="py-5">
+
+                <div className={`overflow-hidden transition-all ease-in-out duration-500 ${(isShown === i.id)?"py-5 opacity-100":"max-h-0 opacity-0"}`}>
                   {
-                  s.example.map((example) => {
-                    return <p className=" pl-20 pt-2"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5"/></span>{example}</p>
+                  i.description.map((description) => {
+                    return <p className=" pl-10 pt-2 font-semibold text-[#5478FF]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#5478FF]"/></span>{description}</p>
                   })
                 }
                 </div>
