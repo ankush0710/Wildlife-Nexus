@@ -6,7 +6,7 @@ const Carausal = ({ carousalData, current }) => {
     <>
       <div className="overflow-hidden relative w-full">
         <div
-          className={`flex transition-transform ease-in-out duration-400`}
+          className={`flex transition-transform ease-in-out duration-500`}
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
@@ -16,7 +16,7 @@ const Carausal = ({ carousalData, current }) => {
               <>
                 <div
                   key={d.id}
-                  className="w-full flex-shrink-0 relative h-[320px] sm:h-[380px] md:h-[450px] lg:h-[550px]"
+                  className="w-full flex-shrink-0 relative h-[320px] sm:h-[500px] md:h-[450px] lg:h-[550px]"
                 >
                   <img
                     src={d.image}
@@ -26,9 +26,9 @@ const Carausal = ({ carousalData, current }) => {
                   <div className="bg-black absolute inset-0 opacity-50"></div>
                   <div
                     id="card"
-                    className="absolute top-50 w-full md:w-[65%] md:top-2 md:bottom-6 md:-translate-x-50 lg:w-[420px] bg-[#EBF4F6] p-4 md:p-5 md:left-80 rounded-lg shadow-xl border border-gray-300"
+                    className="absolute bottom-10 left-80 transform-all sm:-translate-x-1/2 w-[90%] h-auto sm:w-[80%] md:w-[60%] md:bottom-15 md:left-60 lg:w-[450px] bg-[#EBF4F6] p-4 md:p-5 rounded-lg shadow-xl border border-gray-300"
                   >
-                    <p className="font-body text-md text-gray-600 py-2 md:text-center">
+                    <p className="font-body text-sm text-gray-600 py-2 md:text-base md:text-center">
                       <FontAwesomeIcon
                         icon="fa-solid fa-quote-right"
                         className="ps-3 pb-1 rotate-y-180"
@@ -39,10 +39,10 @@ const Carausal = ({ carousalData, current }) => {
                         className="ps-3 pb-1"
                       />
                     </p>
-                    <p className="text-gray-500 font-body font-semibold text-lg text-right pt-10">
+                    <p className="text-gray-500 font-body font-semibold text-lg text-right mt-4">
                       ~ {d.name}
                     </p>
-                    <p className="text-gray-500  font-body font-semibold text-sm text-end pt-1">
+                    <p className="text-gray-500 font-body font-semibold text-sm text-right">
                       - {d.position}
                     </p>
                   </div>

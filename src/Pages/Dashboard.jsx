@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Carausal from "../Components/Carausal";
+import ProgramCard from "../Components/ProgramCard";
 import Pagination from "../Components/Pagination";
 import bannerVideo from "../assets/bannerVideo.mp4";
 
@@ -101,7 +102,9 @@ const Dashboard = () => {
       {/*Importance of Nature and Wildlife conservation */}
       <section id="NatureAndWildlife">
         <div id="nature-and-wildlife" className="w-full h-auto">
-          
+          <ProgramCard>
+              
+          </ProgramCard>
         </div>
       </section>
     </>
