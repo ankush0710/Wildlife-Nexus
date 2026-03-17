@@ -29,10 +29,31 @@ const initialState = {
       image:
         "https://cdn.pixabay.com/photo/2018/10/12/11/33/eagle-3741968_1280.jpg",
     },
-  ],
+    ],
 
-  //state variable for nature and wildlife section
-  InformationData : [
+     // state for slider images for carousal of founder section
+    CarousalData: [
+      {
+        id: 1,
+        image:"https://img.freepik.com/free-photo/confident-young-man-looking-determined-cross-arms-chest-wearing-orange-winter-sweater-standing-ag_1258-155306.jpg?semt=ais_rp_progressive&w=740&q=80",
+        name: "Saurabh Sharma",
+        position: "CEO, Founder of Gaurdians of Wildlife",
+        message:
+          "Wildlife conservation is essential to maintain ecosystem balance, protect biodiversity, and ensure a healthy planet for future generations by safeguarding habitats and endangered species. The core message is to protect natural habitats from destruction, combat species reduction caused by humans, and recognize that wildlife is a priceless treasure",
+      },
+      {
+        id: 2,
+        image:
+          "https://as2.ftcdn.net/jpg/02/88/33/79/1000_F_288337966_NdtrgYYHMgPxvCu3mEPZZKuKecxVpXA2.jpg",
+        name: "Dr. Abhinav Thakur",
+        position: "Marketing Head, Co-founder of Gaurdians of Wildlife",
+        message:
+          "The human population has grown exponentially over the past 200 years, to more than eight billion humans as of November 2022, and it continues to rapidly grow. This means natural resources are being consumed faster than ever by the billions of people on the planet. This growth and development also endangers the habitats and existence of various types of wildlife around the world, particularly animals and plants that may be displaced for land development, used for food or other human purposes. Other threats to wildlife include the introduction of invasive species from other parts of the world, climate change, pollution, hunting, fishing and poaching.",
+      },
+    ],
+
+    //state variable for nature and wildlife section
+    InformationData : [
       {
         id: 1,
         message:
@@ -86,26 +107,40 @@ const initialState = {
          },
     ],
 
-  // state for slider images for carousal of founder section
-    CarousalData: [
-      {
-        id: 1,
-        image:"https://img.freepik.com/free-photo/confident-young-man-looking-determined-cross-arms-chest-wearing-orange-winter-sweater-standing-ag_1258-155306.jpg?semt=ais_rp_progressive&w=740&q=80",
-        name: "Saurabh Sharma",
-        position: "CEO, Founder of Gaurdians of Wildlife",
-        message:
-          "Wildlife conservation is essential to maintain ecosystem balance, protect biodiversity, and ensure a healthy planet for future generations by safeguarding habitats and endangered species. The core message is to protect natural habitats from destruction, combat species reduction caused by humans, and recognize that wildlife is a priceless treasure",
-      },
-      {
-        id: 2,
-        image:
-          "https://as2.ftcdn.net/jpg/02/88/33/79/1000_F_288337966_NdtrgYYHMgPxvCu3mEPZZKuKecxVpXA2.jpg",
-        name: "Dr. Abhinav Thakur",
-        position: "Marketing Head, Co-founder of Gaurdians of Wildlife",
-        message:
-          "The human population has grown exponentially over the past 200 years, to more than eight billion humans as of November 2022, and it continues to rapidly grow. This means natural resources are being consumed faster than ever by the billions of people on the planet. This growth and development also endangers the habitats and existence of various types of wildlife around the world, particularly animals and plants that may be displaced for land development, used for food or other human purposes. Other threats to wildlife include the introduction of invasive species from other parts of the world, climate change, pollution, hunting, fishing and poaching.",
-      },
+    //state variable for core initiatives section
+    Initiatives: [
+        {
+            id: 1,
+            initiative: "Anti-Poaching Laws",
+            description: ["Strict wildlife protection laws", "Forest guards and surveillance systems"],
+        },
+        {
+            id: 2,
+            initiative: "Protected Areas",
+            description: ["National Parks", "Wildlife Sanctuaries", "Biosphere Reserves"],
+        },
+        {
+            id: 3,
+            initiative: "Awareness Campaigns",
+            description: ["Educating people about wildlife protection"],
+        },
+        {
+            id: 4,
+            initiative: "Community Participation",
+            description: ["Involving local people in conservation"],
+        },
+        {
+            id:5,
+            initiative: "Convention on International Trade in Endangered Species",
+            description: ["Regulates trade of endangered species", "Prevents illegal wildlife trafficking"]
+        },
+        {
+            id:6,
+            initiative: "Green India Mission",
+            description: ["Aims to increase forest cover", "Improves biodiversity and ecosystem balance"]
+        }
     ],
+
 
     //state variable for join our team page
     GovProgram: [],

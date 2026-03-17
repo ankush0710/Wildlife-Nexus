@@ -168,32 +168,60 @@ const Dashboard = () => {
                   </span>
                 </p>
                 <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
-                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading">Example:-</p>
-                {
+                <p className="pl-15 text-gray-600 text-lg font-heading">Example:-</p>
+                <div className="py-5">
+                  {
                   s.example.map((example) => {
                     return <p className=" pl-20 pt-2"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5"/></span>{example}</p>
                   })
                 }
+                </div>
                 </>
               );
             })}
-            {/* <p className="font-body text-lg text-gray-600 pt-10 md:text-base text-center md:text-xl">
-              <FontAwesomeIcon
-                icon="fa-solid fa-quote-right"
-                className="ps-3 pb-1 rotate-y-180"
-              />
-              Protect nature today, so life can thrive tomorrow.
-              <FontAwesomeIcon
-                icon="fa-solid fa-quote-right"
-                className="ps-3 pb-1"
-              />
-            </p> */}
           </div>
         </div>
       </section>
 
-
-      
+      {/* This section describes the core initiatves towards wildlife conservation*/}
+      <section id="ClimateAndWildlife">
+        <div className="w-full mb-10 md:mt-5 md:flex md:justify-center md:flex-row-reverse">
+          <div
+            id="image-container flex-1"
+            style={{ backgroundImage: `url('${climateImage}')` }}
+            className="relative w-full md:w-[50%] h-[350px] md:h-auto bg-cover bg-center"
+          ></div>
+           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
+            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
+              How Climate Change affects Wildlife ?
+            </h1>
+            {climateWildlifeData.map((s) => {
+              return (
+                <>
+                <p className="p-3">
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-check"
+                    className="text-[#111F35] text-2xl font-bold"
+                  />
+                  <span className="text-gray-600 text-lg font-heading font-semibold px-3">
+                    {s.subHeading} 
+                  </span>
+                </p>
+                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
+                <p className="pl-15 text-gray-600 text-lg font-heading">Example:-</p>
+                <div className="py-5">
+                  {
+                  s.example.map((example) => {
+                    return <p className=" pl-20 pt-2"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5"/></span>{example}</p>
+                  })
+                }
+                </div>
+                </>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
