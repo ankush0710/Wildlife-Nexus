@@ -205,18 +205,18 @@ const Dashboard = () => {
           </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
             <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
-              How Climate Change affects Wildlife ?
+              Core Initiatives 
             </h1>
-            {climateWildlifeData.map((s) => {
+            {initiatives.map((i) => {
               return (
                 <>
                 <p className="p-3">
                   <FontAwesomeIcon
-                    icon="fa-solid fa-check"
+                    icon="fa-solid fa-check-double"
                     className="text-[#111F35] text-2xl font-bold"
                   />
                   <span className="text-gray-600 text-lg font-heading font-semibold px-3">
-                    {s.subHeading} 
+                    {i.initiative} 
                   </span>
                 </p>
                 <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
