@@ -47,12 +47,12 @@ const Dashboard = () => {
 
       {/* introduction of the organzation section*/}
       <section id="whoWeAre">
-        <h1 className="my-2 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl md:my-5">
+        <h1 className="text-2xl font-heading text-center font-bold text-[#44A194] md:text-4xl md:my-5">
           {dasboardData[0].title}
         </h1>
         <div className="my-5 md:flex md:justify-between">
           <div id="text-contain" className="mx-10">
-            <p className="text-center mt-4 text-lg text-justify">
+            <p className="text-center text-gray-500 mt-4 text-lg text-justify">
               {dasboardData[0].description}
             </p>
           </div>
@@ -70,12 +70,12 @@ const Dashboard = () => {
 
       {/* this section describe about the work we are doing */}
       <section id="WhatWeServe">
-        <h1 className="mt-10 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        <h1 className="mt-7 text-2xl font-heading text-center font-bold text-[#44A194] md:text-4xl md:mt-10">
           {dasboardData[1].title}
         </h1>
         <div className="my-5 md:flex md:justify-between md:flex-row-reverse">
           <div id="text-contain" className="mx-10">
-            <p className="text-center mt-4 text-lg text-justify">
+            <p className="text-center text-gray-500 mt-4 text-lg text-justify">
               {dasboardData[1].description}
             </p>
           </div>
@@ -93,7 +93,7 @@ const Dashboard = () => {
 
       {/* meet the founder of the oganization section  */}
       <section id="carousal">
-        <h1 className="mt-10 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+        <h1 className="mt-10 text-3xl font-heading text-center font-bold text-[#44A194] md:text-5xl">
           Meet Our Founders
         </h1>
         <div id="carousal" className="relative w-[100%] h-2xl mt-10">
@@ -118,7 +118,7 @@ const Dashboard = () => {
 
           </div>
           <div id="text-container" className="my-10 mx-5 md:w-[50%]">
-            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
+            <h1 className="font-heading text-[#406093] text-2xl text-center font-bold md:text-4xl">
               Why Nature and Wildlife Conservation is important ?
             </h1>
             {informationData.map((q) => {
@@ -126,7 +126,7 @@ const Dashboard = () => {
                 <p className="px-5 py-5">
                   <FontAwesomeIcon
                     icon="fa-solid fa-check"
-                    className="text-[#111F35] text-2xl font-bold"
+                    className="text-[#C08552] text-2xl font-bold"
                   />
                   <span className="text-gray-600 text-lg font-body px-3 leading-10">
                     {q.message}
@@ -163,7 +163,7 @@ const Dashboard = () => {
 
           </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
-            <h1 className="font-heading text-gray-500 text-2xl text-center font-bold">
+            <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold lg:text-4xl">
               How Climate Change affects Wildlife ?
             </h1>
             {climateWildlifeData.map((s) => {
@@ -172,18 +172,18 @@ const Dashboard = () => {
                 <p className="p-3">
                   <FontAwesomeIcon
                     icon="fa-solid fa-check"
-                    className="text-[#111F35] text-2xl font-bold"
+                    className="text-[#2FA4D7] text-2xl font-bold"
                   />
-                  <span className="text-gray-600 text-lg font-heading font-semibold px-3">
+                  <span className="text-[#408A71] text-lg font-heading font-semibold px-3 md:text-xl">
                     {s.subHeading} 
                   </span>
                 </p>
-                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3">{s.message}</p>
-                <p className="pl-15 text-gray-600 text-lg font-heading">Example:-</p>
-                <div className="py-5">
+                <p className="pl-15 pb-5 text-gray-600 text-lg font-heading px-3 md:text-xl">{s.message}</p>
+                <p className="pl-15 text-gray-600 text-lg font-semibold font-heading md:text-xl">Example:-</p>
+                <div className="py-8">
                   {
                   s.example.map((example) => {
-                    return <p className=" pl-20 pt-2"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5"/></span>{example}</p>
+                    return <p className=" pl-20 md:text-[17px]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#408A71]"/></span>{example}</p>
                   })
                 }
                 </div>
@@ -205,7 +205,7 @@ const Dashboard = () => {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
            <div id="text-container" className="my-10 mx-5 md:w-[50%]">
-            <h1 className="font-heading pb-10 text-gray-500 text-2xl text-center font-bold lg:text-4xl">
+            <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold md:text-4xl">
               Core Initiatives 
             </h1>
             {
@@ -215,9 +215,9 @@ const Dashboard = () => {
                 <p className="p-3">
                   <FontAwesomeIcon
                     icon="fa-solid fa-check-double"
-                    className="text-[#111F35] text-xl font-bold"
+                    className="text-[#111FA2] text-xl font-bold"
                   />
-                  <span className="text-gray-600 text-xl font-heading font-semibold px-3 cursor-pointer hover:text-2xl hover:text-[#]" onMouseEnter={() => setIsShown(i.id)} onMouseLeave={() => setIsShown(null)}>
+                  <span className="text-gray-500 text-xl font-heading font-semibold px-3 cursor-pointer hover:text-2xl hover:text-[#]" onMouseEnter={() => setIsShown(i.id)} onMouseLeave={() => setIsShown(null)}>
                     {i.initiative} 
                   </span>
                 </p>
@@ -225,7 +225,7 @@ const Dashboard = () => {
                 <div className={`overflow-hidden transition-all ease-in-out duration-500 ${(isShown === i.id)?"py-5 opacity-100":"max-h-0 opacity-0"}`}>
                   {
                   i.description.map((description) => {
-                    return <p className=" pl-10 pt-2 font-semibold text-[#5478FF]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#5478FF]"/></span>{description}</p>
+                    return <p className=" pl-10 pt-2 font-semibold text-[#406093]"><span><FontAwesomeIcon icon="fa-solid fa-arrow-right" className="px-5 text-[#406093]"/></span>{description}</p>
                   })
                 }
                 </div>
