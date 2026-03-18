@@ -23,7 +23,7 @@ const Carausal = ({ carousalData, current }) => {
                   <img
                     src={d.image}
                     alt="slide"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
 
                   {/* Gradient Overlay (better than black box) */}

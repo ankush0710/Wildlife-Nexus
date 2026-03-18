@@ -13,7 +13,8 @@ const Dashboard = () => {
   const carousalData = useSelector((state) => state.CarousalData);
   const informationData = useSelector((state) => state.InformationData);
   const climateWildlifeData = useSelector((state) => state.ClimateWildlifeData);
-  const initiatives = useSelector((state) => state.Initiatives);
+  const initiativesData = useSelector((state) => state.Initiatives);
+  const recognitionData = useSelector((state) => state.recognitionData);
   const fundingData = useSelector((state) => state.FundingData);
   const [current, setCurrent] = useState(0);
   const [isShown, setIsShown] = useState(null);
@@ -217,7 +218,7 @@ const Dashboard = () => {
             <h1 className="font-heading text-[#44A194] pb-10 text-2xl text-center font-bold md:text-4xl">
               Core Initiatives
             </h1>
-            {initiatives.map((i) => {
+            {initiativesData.map((i) => {
               return (
                 <>
                   <p className="p-3">
@@ -255,6 +256,21 @@ const Dashboard = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* goverment recongition in form of caraousal section  */}
+      <section id="carousal">
+        <h1 className="mt-10 text-3xl font-heading text-center font-bold text-[#C44A3A] md:text-5xl">
+          Some Global Leaders also Appreciate and Recognize our Work
+        </h1>
+        <div id="carousal" className="relative w-[100%] h-4xl  mt-10">
+          <Carausal current={current} carousalData={recognitionData} />
+          <Pagination
+            current={current}
+            setCurrent={setCurrent}
+            totalCards={recognitionData.length}
+          />
         </div>
       </section>
 
