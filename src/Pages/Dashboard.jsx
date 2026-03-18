@@ -97,7 +97,7 @@ const Dashboard = () => {
         <h1 className="mt-10 text-3xl font-heading text-center font-bold text-[#44A194] md:text-5xl">
           Meet Our Founders
         </h1>
-        <div id="carousal" className="relative w-[100%] h-2xl mt-10">
+        <div id="carousal" className="relative w-[100%] h-4xl mt-10">
           <Carausal current={current} carousalData={carousalData} />
           <Pagination
             current={current}

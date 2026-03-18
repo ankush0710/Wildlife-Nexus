@@ -5,8 +5,9 @@ const Carausal = ({ carousalData, current }) => {
   return (
     <>
       <div className="overflow-hidden relative w-full">
+        {/* slides  */}
         <div
-          className={`flex transition-transform ease-in-out duration-500`}
+          className={`flex transition-transform ease-in-out duration-700`}
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
@@ -16,35 +17,44 @@ const Carausal = ({ carousalData, current }) => {
               <>
                 <div
                   key={d.id}
-                  className="w-full flex-shrink-0 relative h-[320px] sm:h-[500px] md:h-[450px] lg:h-[550px]"
+                  className="w-full flex-shrink-0 relative h-[300px] h-[500px] lg:h-[600px]"
                 >
+                  {/* Background Image */}
                   <img
                     src={d.image}
-                    alt="image"
+                    alt="slide"
                     className="w-full h-full object-cover"
                   />
-                  <div className="bg-black absolute inset-0 opacity-50"></div>
-                  <div
-                    id="card"
-                    className="absolute bottom-10 left-80 transform-all sm:-translate-x-1/2 w-[90%] h-auto sm:w-[80%] md:w-[60%] md:bottom-15 md:left-60 lg:w-[450px] bg-[#EBF4F6] p-4 md:p-5 rounded-lg shadow-xl border border-gray-300"
-                  >
-                    <p className="font-body text-sm text-gray-600 py-2 md:text-base md:text-center">
-                      <FontAwesomeIcon
-                        icon="fa-solid fa-quote-right"
-                        className="ps-3 pb-1 rotate-y-180"
-                      />
-                      {d.message}
-                      <FontAwesomeIcon
-                        icon="fa-solid fa-quote-right"
-                        className="ps-3 pb-1"
-                      />
-                    </p>
-                    <p className="text-gray-500 font-body font-semibold text-lg text-right mt-4">
-                      ~ {d.name}
-                    </p>
-                    <p className="text-gray-500 font-body font-semibold text-sm text-right">
-                      - {d.position}
-                    </p>
+
+                  {/* Gradient Overlay (better than black box) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+
+                  {/* Content Card */}
+                  <div className="absolute bottom-6 sm:bottom-10 left-1/2 md:left-1/3 -translate-x-1/2 w-[92%] sm:w-[80%] md:w-[65%] lg:w-[500px]">
+                    <div className="backdrop-blur-md bg-white/80 p-4 sm:p-6 rounded-2xl shadow-2xl border border-white/30 transition-all duration-500 hover:scale-[1.02]">
+                      {/* Quote */}
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center">
+                        <FontAwesomeIcon
+                          icon="fa-solid fa-quote-left"
+                          className="me-2 text-blue-500"
+                        />
+                        {d.message}
+                        <FontAwesomeIcon
+                          icon="fa-solid fa-quote-right"
+                          className="ms-2 text-blue-500"
+                        />
+                      </p>
+
+                      {/* Name */}
+                      <p className="text-gray-900 font-semibold text-base sm:text-lg text-right mt-4">
+                        ~ {d.name}
+                      </p>
+
+                      {/* Position */}
+                      <p className="text-gray-600 text-xs sm:text-sm text-right">
+                        {d.position}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </>
