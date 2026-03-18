@@ -16,7 +16,7 @@ const JoinTeam = () => {
   const teamData = useSelector((state) => state.TeamData);
   const rescueData = useSelector((state) => state.RescueData);
   const celebrityData = useSelector((state) => state.CelebrityData);
-  const volunteerData = useSelector((state)=>state.VolunteerData)
+  const volunteerData = useSelector((state) => state.VolunteerData);
   const [current, setCurrent] = useState(0);
   const [currentTeamCard, setCurrentTeamCard] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
@@ -73,148 +73,153 @@ const JoinTeam = () => {
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 my-5 mx-3"></div>
 
-      {/* carausal section for goverment initiatives and Program  */}
-      <h1 className="my-5 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
-        Goverment Initiatives
-      </h1>
-      <JoinTeamCard>
-        <div
-          className={`flex gap-4 transition-transform ease-in-out duration-400`}
-          style={{
-            transform: `translateX(-${current * 100}%)`,
-          }}
-        >
-          {govProgram.map((gp) => {
-            return (
-              <>
-                <div
-                  key={gp.id}
-                  className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
-                >
-                  <div id="crad-image" className="w-full h-75 rounded-t-xl">
-                    <img
-                      src={gp.imageUrl}
-                      alt="card-image"
-                      className="w-full h-full object-cover object-center rounded-t-xl"
-                    />
-                  </div>
-                  <div className="border-1 border-gray-400 mx-10 my-5 "></div>
-                  <div id="card-content" className="p-5 space-y-3">
-                    <div className="flex justify-between">
+      <section id="govermentInitiative">
+        {/* carausal section for goverment initiatives and Program  */}
+        <h1 className="my-5 text-3xl font-heading text-center font-bold text-[#C44A3A] md:text-5xl">
+          Goverment Initiatives
+        </h1>
+        <JoinTeamCard>
+          <div
+            className={`flex gap-4 transition-transform ease-in-out duration-400`}
+            style={{
+              transform: `translateX(-${current * 100}%)`,
+            }}
+          >
+            {govProgram.map((gp) => {
+              return (
+                <>
+                  <div
+                    key={gp.id}
+                    className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
+                  >
+                    <div id="crad-image" className="w-full h-75 rounded-t-xl">
+                      <img
+                        src={gp.imageUrl}
+                        alt="card-image"
+                        className="w-full h-full object-cover object-center rounded-t-xl"
+                      />
+                    </div>
+                    <div className="border-1 border-gray-400 mx-10 my-5 "></div>
+                    <div id="card-content" className="p-5 space-y-3">
+                      <div className="flex justify-between">
+                        <p className="font-heading font-semibold text-md text-black">
+                          Project Name:{" "}
+                          <span className="font-body text-md text-gray-600">
+                            {gp.programName}
+                          </span>
+                        </p>
+                        <p className="font-heading font-semibold text-md text-black">
+                          Country:{" "}
+                          <span className="font-body text-md text-gray-600">
+                            {gp.country}
+                          </span>
+                        </p>
+                      </div>
                       <p className="font-heading font-semibold text-md text-black">
-                        Project Name:{" "}
+                        Launched Year:{" "}
                         <span className="font-body text-md text-gray-600">
-                          {gp.programName}
+                          {gp.year}
                         </span>
                       </p>
                       <p className="font-heading font-semibold text-md text-black">
-                        Country:{" "}
+                        About:{" "}
                         <span className="font-body text-md text-gray-600">
-                          {gp.country}
+                          {gp.description}
+                        </span>
+                        <Link
+                          to="/Program"
+                          className="ps-2 text-blue-500 text-md font-light hover:cursor-pointer hover:text-blue-800"
+                        >
+                          Read More...
+                        </Link>
+                      </p>
+
+                      <p className="font-heading font-semibold text-md text-black">
+                        Department:{" "}
+                        <span className="font-body text-md text-gray-600">
+                          {gp.goverment}
                         </span>
                       </p>
                     </div>
-                    <p className="font-heading font-semibold text-md text-black">
-                      Launched Year:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {gp.year}
-                      </span>
-                    </p>
-                    <p className="font-heading font-semibold text-md text-black">
-                      About:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {gp.description}
-                      </span>
-                      <Link
-                        to="/Program"
-                        className="ps-2 text-blue-500 text-md font-light hover:cursor-pointer hover:text-blue-800"
-                      >
-                        Read More...
-                      </Link>
-                    </p>
-
-                    <p className="font-heading font-semibold text-md text-black">
-                      Department:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {gp.goverment}
-                      </span>
-                    </p>
                   </div>
-                </div>
-              </>
-            );
-          })}
-        </div>
-        <Pagination
-          setCurrent={setCurrent}
-          current={current}
-          totalCards={totalCards}
-        />
-      </JoinTeamCard>
+                </>
+              );
+            })}
+          </div>
+          <Pagination
+            setCurrent={setCurrent}
+            current={current}
+            totalCards={totalCards}
+          />
+        </JoinTeamCard>
+      </section>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
-      {/* carausal section for Meet Our Team  */}
-      <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
-        Meet Our Team Leaders
-      </h1>
-      <JoinTeamCard>
-        <div
-          className={`flex gap-4 transition-transform ease-in-out duration-400`}
-          style={{
-            transform: `translateX(-${currentTeamCard * 100}%)`,
-          }}
-        >
-          {teamData.map((td) => {
-            return (
-              <>
-                <div
-                  key={td.id}
-                  className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
-                >
-                  <div id="crad-image" className="w-full h-80 rounded-t-xl">
-                    <img
-                      src={td.imageUrl}
-                      alt="card-image"
-                      className="w-full h-full object-cover object-center rounded-t-xl"
-                    />
-                  </div>
-                  <div className="border-1 border-gray-400 mx-10 my-5"></div>
-                  <div id="card-content" className="p-5 space-y-3">
-                    <div className="flex justify-between">
+      <section id="leaders-section">
+        {/* carausal section for Meet Our Team  */}
+        <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-[#406093] md:text-5xl">
+          Meet Our Team Leaders
+        </h1>
+        <JoinTeamCard>
+          <div
+            className={`flex gap-4 transition-transform ease-in-out duration-400`}
+            style={{
+              transform: `translateX(-${currentTeamCard * 100}%)`,
+            }}
+          >
+            {teamData.map((td) => {
+              return (
+                <>
+                  <div
+                    key={td.id}
+                    className="relative w-full md:w-1/2 lg:w-1/3 flex-shrink-0 min-w-0 h-auto mb-10 border-1 border-gray-400 rounded-xl"
+                  >
+                    <div id="crad-image" className="w-full h-80 rounded-t-xl">
+                      <img
+                        src={td.imageUrl}
+                        alt="card-image"
+                        className="w-full h-full object-cover object-center rounded-t-xl"
+                      />
+                    </div>
+                    <div className="border-1 border-gray-400 mx-10 my-5"></div>
+                    <div id="card-content" className="p-5 space-y-3">
+                      <div className="flex justify-between">
+                        <p className="font-heading font-semibold text-md text-black">
+                          Project Name: {""}
+                          <span className="font-body text-md text-gray-600">
+                            {td.Name}
+                          </span>
+                        </p>
+                      </div>
+
                       <p className="font-heading font-semibold text-md text-black">
-                        Project Name: {""}
+                        Year Of experience:{" "}
                         <span className="font-body text-md text-gray-600">
-                          {td.Name}
+                          {td.experience}+ years
                         </span>
                       </p>
                     </div>
-
-                    <p className="font-heading font-semibold text-md text-black">
-                      Year Of experience:{" "}
-                      <span className="font-body text-md text-gray-600">
-                        {td.experience}+ years
-                      </span>
-                    </p>
                   </div>
-                </div>
-              </>
-            );
-          })}
-        </div>
-        <Pagination
-          setCurrent={setCurrentTeamCard}
-          current={currentTeamCard}
-          totalCards={teamCards}
-        />
-      </JoinTeamCard>
+                </>
+              );
+            })}
+          </div>
+          <Pagination
+            setCurrent={setCurrentTeamCard}
+            current={currentTeamCard}
+            totalCards={teamCards}
+          />
+        </JoinTeamCard>
+      </section>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* Our Work section which highlight the work in form of charts */}
-      <h1 className="mb-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+     <section id="chart-section">
+       <h1 className="mb-5 mx-3 text-3xl font-heading text-center font-bold text-[#44A194] md:text-5xl">
         Our Work
       </h1>
       <p className="font-body text-xl text-center font-semibol px-3">
@@ -224,12 +229,14 @@ const JoinTeam = () => {
       <div id="chart" className="w-full h-[500px] my-10 ">
         <Chart data={rescueData} />
       </div>
+     </section>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* This section display those celebrities who connect with us */}
-      <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <section id="celebrity-section">
+            <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-[#547792] md:text-5xl">
         Some Famous Personality also Work With Us
       </h1>
       <div id="persnality" className="mb-10">
@@ -274,13 +281,15 @@ const JoinTeam = () => {
           );
         })}
       </div>
+      </section>
 
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
       {/* This section contains the form and other information */}
-      <div className="mx-3">
-        <h1 className="my-5 mx-3 text-2xl font-heading text-center font-bold text-gray-500 md:text-5xl">
+      <section id="-join-our-team-form">
+        <div className="mx-3">
+        <h1 className="my-5 mx-3 text-2xl font-heading text-center font-bold text-[#406093] md:text-5xl">
           Now it's Your turn to take a first step and contribute to Wildlife
           Conservation
         </h1>
@@ -299,29 +308,29 @@ const JoinTeam = () => {
         </p>
       </div>
       <div id="main-container" className="px-auto w-full h-auto lg:flex">
-        {/* address of offices in INDIA and LA  */}
+        {/* card for Volunteers  */}
+
         <div
           id="cards-section"
           className="flex flex-col gap-8 mx-3 my-5 flex-1"
         >
-          {
-            volunteerData.map((vd)=>{
-              return(
-                <>
+          {volunteerData.map((vd) => {
+            return (
+              <>
                 <div
-            id={vd.id}
-            style={{ backgroundImage: `url('${vd.bgImage}')` }}
-            className="relative w-full h-48  rounded-lg shadow-lg p-4 bg-cover bg-center"
-          >
-            <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
-            <p className="absolute top-1/2 left-10 font-body text-lg text-white font-semibold">
-              <span className="text-2xl">{vd.volunteer}+ </span> Volunteers works in India
-            </p>
-          </div>
-                </>
-              )
-            })
-          }
+                  id={vd.id}
+                  style={{ backgroundImage: `url('${vd.bgImage}')` }}
+                  className="relative w-xl h-48 rounded-lg shadow-lg p-4 bg-cover bg-center"
+                >
+                  <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                  <p className="absolute top-1/2 left-50 font-body text-lg text-white font-semibold">
+                    <span className="text-2xl">{vd.volunteer}+ </span>{" "}
+                    {vd.country}
+                  </p>
+                </div>
+              </>
+            );
+          })}
         </div>
 
         {/* form to where user enter thier details  */}
@@ -329,7 +338,7 @@ const JoinTeam = () => {
           {/* contact form for contact details  */}
           <Formik>
             <div id="contact-form" className="relative mt-10 md:flex-1">
-              <h1 className="font-heading text-3xl font-bold text-center">
+              <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
                 Connect with Us
               </h1>
               <div
@@ -477,6 +486,7 @@ const JoinTeam = () => {
           </Formik>
         </div>
       </div>
+      </section>
     </>
   );
 };
