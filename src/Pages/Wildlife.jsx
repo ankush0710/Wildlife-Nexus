@@ -10,36 +10,26 @@ const Wildlife = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardPerPage, setCardPerPage] = useState(9);
   const [search, setSearch] = useState("");
-  const [filteredSearch, setFilteredSearch] = useState("");
+  const [filteredSearch, setFilteredSearch] = useState(WildlifeData);
   const [isHidden, setIsHidden] = useState(true);
-  const [searchStatus, setSearchStatus] = useState("");
 
   useEffect(() => {
     dispatch(FetchWildlifeData());
   }, [dispatch]);
-
-  // search logic for search data by name
-  const filterName = useMemo(() => {
-    return WildlifeData.filter((wd) =>
-      wd.name.toLowerCase().includes(filteredSearch.toLowerCase()),
-    );
-  }, [filteredSearch]);
 
   const handleSearch = () => {
     setFilteredSearch(search);
     setCurrentPage(1);
   };
 
-  //method for displaying 8 cards in md devices and 9 cards in lg devices
-  useEffect(() => {
-    if (window.innerWidth >= 1024) {
-      setCardPerPage(9);
-    } else if (window.innerWidth >= 768) {
-      setCardPerPage(8);
-    }
-  });
+   // search logic for search data by name
+  const filterName = useMemo(() => {
+    return WildlifeData.filter((wd) =>
+      wd.name.toLowerCase().includes(search.toLowerCase()),
+    );
+  }, [filteredSearch]);
 
-  //pagination logic start here
+    //pagination logic start here
   const currentCard = useMemo(() => {
     const lastIndex = currentPage * cardPerPage;
     const startIndex = lastIndex - cardPerPage;
@@ -54,6 +44,21 @@ const Wildlife = () => {
       setCurrentPage(selected);
     }
   };
+
+  //function for back to original data
+  const handleBack = () => {
+      setSearch("");
+      setFilteredSearch(WildlifeData);
+  }
+
+  //method for displaying 8 cards in md devices and 9 cards in lg devices
+  useEffect(() => {
+    if (window.innerWidth >= 1024) {
+      setCardPerPage(9);
+    } else if (window.innerWidth >= 768) {
+      setCardPerPage(8);
+    }
+  });
 
   //if data is yet to come then loading text will display
   if (!WildlifeData || WildlifeData.length == 0) {
@@ -71,7 +76,7 @@ const Wildlife = () => {
       {/* button for back to default state  */}
       <div className="mx-3 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
         <button
-          onClick={""}
+          onClick={handleBack}
           className="flex justify-center items-center gap-2 cursor-pointer"
         >
           <FontAwesomeIcon
