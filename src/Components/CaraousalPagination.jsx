@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pagination = ({ totalCards, current, setCurrent }) => {
+const CaraousalPagination = ({ totalCards, current, setCurrent }) => {
 
   // function for go to previous slide
   const prevSlide = () => {
@@ -37,4 +37,4 @@ const Pagination = ({ totalCards, current, setCurrent }) => {
   );
 };
 
-export default Pagination;
+export default CaraousalPagination;

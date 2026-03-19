@@ -4,6 +4,7 @@ import { FetchWildlifeData } from "../redux/action/action";
 import Cards from "../Components/Cards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WildlifeBgImage from "../assets/wildlife-bg-image.avif";
+import Pagination from "../Components/CaraousalPagination";
 
 const Wildlife = () => {
   const dispatch = useDispatch();
@@ -234,7 +235,7 @@ const Wildlife = () => {
       </div>
 
       {/* main content section  */}
-      <div className="p-10 w-full h-auto my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="px-5 w-full h-auto my-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:px-10">
         {currentCard.map((Wdata) => {
           return (
             <Cards
@@ -297,6 +298,7 @@ const Wildlife = () => {
           );
         })}
       </div>
+
 
       {/* Pagination based on component length  */}
       {WildlifeData.length > 0 && (
