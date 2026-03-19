@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FetchGovProgramData, FetchTeamData } from "../redux/action/action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import JoinTeamCard from "../Components/JoinTeamCard";
-import Pagination from "../Components/Pagination";
+import CaraousalPagination from "../Components/CaraousalPagination";
 import ProgramCard from "../Components/ProgramCard";
 import Chart from "../Components/Chart";
 import bgImage from "../assets/Giant-panda.webp";
@@ -73,8 +73,8 @@ const JoinTeam = () => {
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 my-5 mx-3"></div>
 
+      {/* carausal section for goverment initiatives and Program  */}
       <section id="govermentInitiative">
-        {/* carausal section for goverment initiatives and Program  */}
         <h1 className="my-5 text-3xl font-heading text-center font-bold text-[#C44A3A] md:text-5xl">
           Goverment Initiatives
         </h1>
@@ -146,7 +146,7 @@ const JoinTeam = () => {
               );
             })}
           </div>
-          <Pagination
+          <CaraousalPagination
             setCurrent={setCurrent}
             current={current}
             totalCards={totalCards}
@@ -157,8 +157,8 @@ const JoinTeam = () => {
       {/* line for seperation  */}
       <div className="border-1 border-gray-400 mb-5 mx-3"></div>
 
+      {/* carausal section for Meet Our Team  */}
       <section id="leaders-section">
-        {/* carausal section for Meet Our Team  */}
         <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-[#406093] md:text-5xl">
           Meet Our Team Leaders
         </h1>
@@ -206,7 +206,7 @@ const JoinTeam = () => {
               );
             })}
           </div>
-          <Pagination
+          <CaraousalPagination
             setCurrent={setCurrentTeamCard}
             current={currentTeamCard}
             totalCards={teamCards}
