@@ -86,7 +86,7 @@ const Wildlife = () => {
     <>
       {/* bg -image and intro of page  */}
       <section id="bg-image">
-        <div className="w-full min-h-[80vh]">
+        <div className="w-full min-h-[80vh] my-10">
           <div
             id="banner-image"
             style={{ backgroundImage: `url('${WildlifeBgImage}')` }}
@@ -114,7 +114,7 @@ const Wildlife = () => {
 
       {/* button for back to default state  */}
       <section id="searchBar-section">
-        <div className="mx-3 my-2 md:my-10 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
+        <div className="mx-3 mb-5 md:mt-20 flex justify-center items-end md:flex-row md:justify-between md:items-center md:mx-15">
           {(search || catagory) && (
             <button
               onClick={handleBack}
@@ -135,7 +135,7 @@ const Wildlife = () => {
             className={
               search || catagory
                 ? "flex flex-col gap-5 items-center justify-between md:flex-1 md:flex-row"
-                : "flex flex-1 justify-center items-center"
+                : "flex flex-col gap-5 items-center justify-center md:flex-1 md:flex-row"
             }
           >
             <div className="relative mx-auto">
