@@ -43,6 +43,7 @@ const Wildlife = () => {
   //function for back to original data
   const handleBack = () => {
       setSearch("");
+      setFilteredSearch("");
       setCurrentPage(1);
   }
   //method for displaying 8 cards in md devices and 9 cards in lg devices
@@ -79,31 +80,33 @@ const Wildlife = () => {
     <>
       {/* button for back to default state  */}
       <div className="mx-3 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
-        <button
+        {search && (
+          <button
           onClick={handleBack}
           className="flex justify-center items-center gap-2 cursor-pointer"
         >
           <FontAwesomeIcon
             icon="fa-solid fa-hand-point-left"
-            className="text-2xl text-gray-500"
+            className="text-2xl text-[#44A194]"
           />
-          <span className="font-heading font-semibold text-2xl text-gray-500">
+          <span className="font-heading font-semibold text-2xl text-[#44A194]">
             Back
           </span>
         </button>
+        )}
 
         <div className="flex flex-col gap-5 items-center justify-between md:flex-1 md:flex-row">
           {/* //search bar and filter button */}
           <div className="relative mx-auto">
             <input
               type="text"
-              value={search}
+              value={filteredSearch}
               placeholder="Search by name"
               className="py-2 px-5 border border-gray-500 rounded-full bg-gray-300 focus:border-gray-600 md:px-8 lg:px-10"
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => setFilteredSearch(e.target.value)}
             />
             <button
-              onClick={()=>{setFilteredSearch(search);
+              onClick={()=>{setSearch(filteredSearch);
                             setCurrentPage(1);
               }}
               className="absolute inset-y-0 right-0 px-4 rounded-e-full border border-gray-500 bg-blue-500 text-white font-body font-semibold hover:bg-[#111F35] cursor-pointer"
