@@ -4,7 +4,7 @@ import { FetchWildlifeData } from "../redux/action/action";
 import Cards from "../Components/Cards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WildlifeBgImage from "../assets/wildlife-bg-image.avif";
-import Pagination from "../Components/CaraousalPagination";
+import Pagination from "../Components/Pagination";
 
 const Wildlife = () => {
   const dispatch = useDispatch();
@@ -45,12 +45,6 @@ const Wildlife = () => {
   // total number of pages will display
   const TotalPage = Math.ceil(filterName.length / cardPerPage);
 
-  const selectPageHandle = (selected) => {
-    if (selected >= 1 && selected !== currentPage && selected <= TotalPage) {
-      setCurrentPage(selected);
-    }
-  };
-
   //function for back to original data
   const handleBack = () => {
     setSearch("");
@@ -58,6 +52,7 @@ const Wildlife = () => {
     setCatagory("");
     setCurrentPage(1);
   };
+
   //method for displaying 8 cards in md devices and 9 cards in lg devices
   useEffect(() => {
     const handleResize = () => {
@@ -73,7 +68,7 @@ const Wildlife = () => {
     handleResize(); //run on initial render
 
     window.addEventListener("resize", handleResize);
-    return () => window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   //if data is yet to come then loading text will display
@@ -298,41 +293,8 @@ const Wildlife = () => {
           );
         })}
       </div>
-
-
-      {/* Pagination based on component length  */}
-      {WildlifeData.length > 0 && (
-        <div
-          id="pagination"
-          className="flex justify-center flex-nowrap text-xl  mt-5 space-x-5 font-heading font-semibold mb-10"
-        >
-          <span>
-            <FontAwesomeIcon
-              icon="fa-solid fa-angle-left"
-              className={
-                currentPage > 1
-                  ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                  : "opacity-0"
-              }
-              onClick={() => selectPageHandle(currentPage - 1)}
-            />
-          </span>
-          <span className="text-black transform translate scale-140 ease-in-out duration-300">
-            {currentPage} / {TotalPage}
-          </span>
-          <span>
-            <FontAwesomeIcon
-              icon="fa-solid fa-angle-right"
-              className={
-                currentPage !== TotalPage
-                  ? "text-gray-400 hover:text-black hover:transform hover:scale-130 hover:duration-300 cursor-pointer"
-                  : "opacity-0"
-              }
-              onClick={() => selectPageHandle(currentPage + 1)}
-            />
-          </span>
-        </div>
-      )}
+    
+      <Pagination TotalPage={TotalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </>
   );
 };
