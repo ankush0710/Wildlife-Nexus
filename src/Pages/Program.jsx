@@ -57,9 +57,9 @@ const Program = () => {
   //else part
   return (
     <>
-      {/*bg image and intro of the page */}
+     {/*bg image and intro of the page */}
       <section id="bg-image">
-        <div className="w-full min-h-[80vh]">
+        <div className="w-full min-h-[100vh]">
           <div
             id="banner-image"
             style={{ backgroundImage: `url('${ProgramBgImage}')` }}
@@ -68,7 +68,7 @@ const Program = () => {
             <div className="bg-black absolute inset-0 opacity-50"></div>
             <div className="absolute z-10 inset-0 top-1/2 space-y-4">
               <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
-                Our Programs
+                Programs
               </h1>
             </div>
           </div>
@@ -77,13 +77,13 @@ const Program = () => {
 
       {/* quote section for some quotes  */}
       <section id="quote-section">
-        <div className="my-10 border-t border-b border-gray-500 py-3 mx-10">
+        <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
           <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
             <FontAwesomeIcon
               icon="fa-solid fa-quote-left"
               className="me-2 mb-2 text-blue-500 text-lg"
             />
-            No water, no life. No blue, no green.
+            No water, no life, no green.
             <FontAwesomeIcon
               icon="fa-solid fa-quote-right"
               className="ms-2 mb-2 text-blue-500 text-lg"

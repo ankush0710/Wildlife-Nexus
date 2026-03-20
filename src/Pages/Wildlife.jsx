@@ -95,7 +95,7 @@ const Wildlife = () => {
             <div className="bg-black absolute inset-0 opacity-50"></div>
             <div className="absolute z-10 inset-0 top-1/2 space-y-4">
               <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
-                Our Programs
+                Wildlife
               </h1>
             </div>
           </div>
@@ -105,7 +105,7 @@ const Wildlife = () => {
       {/* quote section for some quotes  */}
       <section id="quote-section">
         <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
-          <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
+          <p className="text-[#44A194] text-lg font-semibold leading-relaxed text-center md:text-2xl">
             <FontAwesomeIcon
               icon="fa-solid fa-quote-left"
               className="me-2 mb-2 text-blue-500 text-lg"

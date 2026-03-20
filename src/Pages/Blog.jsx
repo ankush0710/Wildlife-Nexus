@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchBlogData } from "../redux/action/action";
-import bgImage from "../assets/blog-bg-image.jpg";
+import blogBgImage from "../assets/blog-bg-image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Pagination from "../Components/Pagination";
@@ -63,7 +63,6 @@ const Blog = () => {
     handleResize(); //run on initial render
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-
   }, []);
 
   useEffect(() => {
@@ -90,10 +89,10 @@ const Blog = () => {
     <>
       {/*bg image and intro of the page */}
       <section id="bg-image">
-        <div className="w-full min-h-[80vh]">
+        <div className="w-full min-h-[100vh]">
           <div
             id="banner-image"
-            style={{ backgroundImage: `url('${bgImage}')` }}
+            style={{ backgroundImage: `url('${blogBgImage}')` }}
             className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
           >
             <div className="bg-black absolute inset-0 opacity-50"></div>
@@ -108,13 +107,13 @@ const Blog = () => {
 
       {/* quote section for some quotes  */}
       <section id="quote-section">
-        <div className="mt-10 border-t border-b border-gray-500 py-3 mx-10">
+        <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
           <p className="text-[#C44A3A] text-lg font-semibold leading-relaxed text-center md:text-2xl">
             <FontAwesomeIcon
               icon="fa-solid fa-quote-left"
               className="me-2 mb-2 text-blue-500 text-lg"
             />
-            Respect Earth, Respect life
+            Respect Earth, Respect life.
             <FontAwesomeIcon
               icon="fa-solid fa-quote-right"
               className="ms-2 mb-2 text-blue-500 text-lg"

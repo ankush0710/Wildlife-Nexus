@@ -77,7 +77,7 @@ const JoinTeam = () => {
 
       {/* carausal section for goverment initiatives and Program  */}
       <section id="govermentInitiative">
-        <h1 className="my-5 text-3xl font-heading text-center font-bold text-[#C44A3A] md:text-5xl">
+        <h1 className="my-5 text-3xl font-heading text-center font-bold text-[#Respect Earth, Respect life] md:text-5xl">
           Goverment Initiatives
         </h1>
         <JoinTeamCard>
