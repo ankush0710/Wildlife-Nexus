@@ -84,37 +84,46 @@ const Wildlife = () => {
 
   return (
     <>
-      {/* bg -image and intro of page  */}
+      {/*bg image and intro of the page */}
       <section id="bg-image">
-        <div className="w-full min-h-[80vh] my-10">
+        <div className="w-full min-h-[100vh]">
           <div
             id="banner-image"
             style={{ backgroundImage: `url('${WildlifeBgImage}')` }}
             className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
-            <div className="absolute z-10 inset-0 top-1/2 space-y-4 lg:px-80">
-              <h1 className="text-2xl text-center text-[#EFD2B0] font-heading font-bold">
-                <FontAwesomeIcon
-                  icon="fa-solid fa-quote-left"
-                  className="me-2 mb-1"
-                />
-                Making a difference to the welfare of Animals doesn't require a
-                massive effort; it requires small actions that can make a
-                significant impact.
-                <FontAwesomeIcon
-                  icon="fa-solid fa-quote-right"
-                  className="ms-2 mb-1"
-                />
+            <div className="bg-black absolute inset-0 opacity-50"></div>
+            <div className="absolute z-10 inset-0 top-1/2 space-y-4">
+              <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
+                Our Programs
               </h1>
             </div>
           </div>
         </div>
       </section>
 
+      {/* quote section for some quotes  */}
+      <section id="quote-section">
+        <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
+          <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-left"
+              className="me-2 mb-2 text-blue-500 text-lg"
+            />
+            Making a difference to the welfare of Animals doesn't require a
+            massive effort; it requires small actions that can make a
+            significant impact.
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ms-2 mb-2 text-blue-500 text-lg"
+            />
+          </p>
+        </div>
+      </section>
+
       {/* button for back to default state  */}
       <section id="searchBar-section">
-        <div className="mx-3 mb-5 md:mt-20 flex justify-center items-end md:flex-row md:justify-between md:items-center md:mx-15">
+        <div className="mx-3 mb-5 flex justify-center items-end md:flex-row md:justify-between md:items-center md:mx-15">
           {(search || catagory) && (
             <button
               onClick={handleBack}
@@ -302,7 +311,7 @@ const Wildlife = () => {
                     </span>
                   </h1>
                   <h1 className="text-white font-heading text-xl">
-                    Speed (in KM) :
+                    Speed (in km/hr) :
                     <span className="font-body text-lg ps-5">
                       {Wdata.speed}
                     </span>

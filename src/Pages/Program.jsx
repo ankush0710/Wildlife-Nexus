@@ -22,24 +22,21 @@ const Program = () => {
 
   const TotalPage = Math.ceil(ProgramData.length / cardPerPage);
 
-  useEffect(()=>{
+  useEffect(() => {
     const handleResize = () => {
-      if(window.innerWidth >= 1024)
-        setCardPerPage(3);
-      else if(window.innerWidth >= 768)
-        setCardPerPage(2);
-      else
-        setCardPerPage(3);
-    }
+      if (window.innerWidth >= 1024) setCardPerPage(3);
+      else if (window.innerWidth >= 768) setCardPerPage(2);
+      else setCardPerPage(3);
+    };
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-      if (currentPage > TotalPage) setCurrentPage(1);
-    }, [ProgramData]);
+    if (currentPage > TotalPage) setCurrentPage(1);
+  }, [ProgramData]);
 
   //disppatch the funtion and render the data
   useEffect(() => {
@@ -50,7 +47,10 @@ const Program = () => {
   if (!ProgramData || ProgramData.length === 0) {
     return (
       <div className="w-full my-10 text-center">
-        <p className="font-body text-lg"> Loading Programs please wait for few sec...</p>
+        <p className="font-body text-lg">
+          {" "}
+          Loading Programs please wait for few sec...
+        </p>
       </div>
     );
   }
@@ -58,39 +58,39 @@ const Program = () => {
   return (
     <>
       {/*bg image and intro of the page */}
-            <section id="bg-image">
-              <div className="w-full min-h-[80vh]">
-                <div
-                  id="banner-image"
-                  style={{ backgroundImage: `url('${ProgramBgImage}')` }}
-                  className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
-                >
-                  <div className="bg-black absolute inset-0 opacity-50"></div>
-                  <div className="absolute z-10 inset-0 top-1/2 space-y-4">
-                    <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
-                      Our Programs
-                    </h1>
-                  </div>
-                </div>
-              </div>
-            </section>
-      
-            {/* quote section for some quotes  */}
-            <section id="quote-section">
-              <div className="my-10 border-t border-b border-gray-500 py-3 mx-10">
-                <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-quote-left"
-                    className="me-2 mb-2 text-blue-500 text-lg"
-                  />
-                  No water, no life. No blue, no green.
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-quote-right"
-                    className="ms-2 mb-2 text-blue-500 text-lg"
-                  />
-                </p>
-              </div>
-            </section>
+      <section id="bg-image">
+        <div className="w-full min-h-[80vh]">
+          <div
+            id="banner-image"
+            style={{ backgroundImage: `url('${ProgramBgImage}')` }}
+            className="absolute top-0 w-full min-h-screen z-0 overflow-hidden bg-no-repeat bg-cover bg-center flex items-center justify-center"
+          >
+            <div className="bg-black absolute inset-0 opacity-50"></div>
+            <div className="absolute z-10 inset-0 top-1/2 space-y-4">
+              <h1 className="text-4xl text-center text-[#44A194] font-heading font-bold md:text-7xl">
+                Our Programs
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* quote section for some quotes  */}
+      <section id="quote-section">
+        <div className="my-10 border-t border-b border-gray-500 py-3 mx-10">
+          <p className="text-[#406093] text-lg font-semibold leading-relaxed text-center md:text-2xl">
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-left"
+              className="me-2 mb-2 text-blue-500 text-lg"
+            />
+            No water, no life. No blue, no green.
+            <FontAwesomeIcon
+              icon="fa-solid fa-quote-right"
+              className="ms-2 mb-2 text-blue-500 text-lg"
+            />
+          </p>
+        </div>
+      </section>
 
       {/* main content of the page where all cards and card details were dsplayed  */}
       <section id="main-content">
@@ -119,7 +119,9 @@ const Program = () => {
                     {data.programName}
                   </h1>
                   <p className="font-body text-md line-clam-3">
-                    <span className="font-bold text-lg pe-2 text-black">Description:</span>
+                    <span className="font-bold text-lg pe-2 text-black">
+                      Description:
+                    </span>
                     {data.description.slice(0, 200)}
                   </p>
                 </div>
