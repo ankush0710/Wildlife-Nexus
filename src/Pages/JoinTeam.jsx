@@ -255,7 +255,7 @@ const JoinTeam = () => {
         <h1 className="my-5 mx-3 text-3xl font-heading text-center font-bold text-[#547792] md:text-5xl">
           Some Famous Personality also Work With Us
         </h1>
-        <div id="persnality" className="mb-10">
+        <div id="persnality" className="mb-10 px-10 flex flex-col gap-5">
           {celebrityData.map((cd) => {
             return (
               <>
