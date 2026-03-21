@@ -323,7 +323,17 @@ const initialState = {
             country: "Works in Other Country (USA, Africa, China, Italy, Russia)",
             bgImage: "https://en.nabu.de/imperia/md/nabu/images/international/asien/230426-nabu-saiga-antelope-p-romanov.jpeg"
         },
-    ]
+    ],
+
+    countryDocumentMap: [{
+        India : "Aadhaar card / PAN card",
+        USA : "Green Card",
+        UK: "National Insurance",
+        Russia: "Internal passport of Russia",
+        Canada: "SSIN / Passport",
+        Austalia: "Driver License / Passport",
+        SouthAfrica: "Passport / Citizenship",
+    }]
 }
 
 const reducer = (state=initialState, action) => {

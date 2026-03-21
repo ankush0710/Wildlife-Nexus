@@ -90,7 +90,7 @@ const ContactUs = () => {
 
   // this method is to captured the input on click of a submit button
   const onSubmit = (values, { resetForm }) => {
-    console.log("form data", values);
+    // console.log("form data", values);
     setIsSubmit(true);
     resetForm();
   };

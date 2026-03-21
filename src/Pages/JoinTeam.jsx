@@ -17,6 +17,7 @@ const JoinTeam = () => {
   const rescueData = useSelector((state) => state.RescueData);
   const celebrityData = useSelector((state) => state.CelebrityData);
   const volunteerData = useSelector((state) => state.VolunteerData);
+  const countryDocumentMap = useSelector((state) => state.countryDocumentMap);
   const [current, setCurrent] = useState(0);
   const [currentTeamCard, setCurrentTeamCard] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
@@ -27,13 +28,16 @@ const JoinTeam = () => {
     firstName: "",
     lastName: "",
     email: "",
-    contactNumber: [" ", " "],
+    contactNumber: ["", ""],
+    country: "",
+    document: null, 
     message: "",
   };
 
   // this method is for validate the inpit field and display error message
   const validate = (values) => {
     const errors = {};
+    errors.contactNumber = [];
 
     if (!values.firstName) {
       errors.firstName = "* Please enter first name";
@@ -49,16 +53,16 @@ const JoinTeam = () => {
       errors.email = "Invalid email address";
     }
 
-    if (!values.primaryPhoneNumber) {
-      errors.primaryPhoneNumber = "* Please enter primary contact number";
-    } else if (primaryPhoneNumber.length < 10) {
-      errors.primaryPhoneNumber = "* Contact number should be atleast of 10 digits";
+    if (!values.contactNumber[0]) {
+      errors.contactNumber[0] = "* Please enter primary contact number";
+    } else if (!/^\d{12}$/.test(values.contactNumber[0])) {
+      errors.contactNumber[0] = "* Contact number should be atleast of 10 digits";
     }
 
-    if (!values.secondaryPhoneNumber) {
-      errors.secondaryPhoneNumber = "* Please enter secondary contact number";
-    } else if (secondaryPhoneNumber.length < 10) {
-      errors.secondaryPhoneNumber = "* Contact number should be atleast of 10 digits";
+    if (!values.contactNumber[1]) {
+      errors.contactNumber[1] = "* Please enter secondary contact number";
+    } else if (!/^\d{12}$/.test(values.contactNumber[1])) {
+      errors.contactNumber[1] = "* Contact number should be atleast of 10 digits";
     }
 
     if (!values.message) {
@@ -415,7 +419,8 @@ const JoinTeam = () => {
               validate={validate}
               onSubmit={onSubmit}
             >
-              <div id="contact-form" className="relative mt-10">
+              {() => (
+                <div id="contact-form" className="relative mt-10">
                 <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
                   Connect with Us
                 </h1>
@@ -481,36 +486,38 @@ const JoinTeam = () => {
                           
                         />
                         <ErrorMessage
-                          name="primaryPhoneNumber"
+                          name="contactNumber[0]"
                           component="div"
                           className="text-red-500 text-sm mt-1"
                         />
                         <label
-                          htmlFor="primaryPhoneNumber"
+                          htmlFor="contactNumber[0]"
+                          onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9]/g, ""))}
                           className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                         >
-                          Contact Details
+                          Contact Number
                         </label>
                       </div>
 
-                      {/* input box for last name  */}
+                      {/* input box for secondaru phone number */}
                       <div className="relative z-0 w-full mt-3 group md:flex-1">
                         <Field
                           type="text"
                           name="contactNumber[1]"
                           id="secondaryPhoneNumber"
+                          onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9]/g, ""))}
                           className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"     
                         />
                         <ErrorMessage
-                          name="secondaryPhoneNumber"
+                          name="contactNumber[1]"
                           component="div"
                           className="text-red-500 text-sm mt-1"
                         />
                         <label
-                          htmlFor="secondaryPhoneNumber"
+                          htmlFor="contactNumber[1]"
                           className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                         >
-                          Alternate Contact Details
+                          Alternate Contact Number
                         </label>
                       </div>
                     </div>
@@ -536,29 +543,6 @@ const JoinTeam = () => {
                         Email
                       </label>
                     </div>
-
-                    {/* input box for select country  */}
-                    {/* <div className="relative z-0 w-full mb-5 mt-3 group">
-                    <Field
-                      as="select"
-                      type="text"
-                      name="selectCountry"
-                      id="selectCountry"
-                      className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                      placeholder=""
-                    />
-                    <ErrorMessage
-                      name="selectCountry"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
-                    <label
-                      for="contactNumber"
-                      className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                    >
-                      Contact Number
-                    </label>
-                  </div> */}
 
                     {/* message for query  */}
                     <div className="relative z-0 w-full mb-5 mt-3 group">
@@ -607,6 +591,7 @@ const JoinTeam = () => {
                   </Form>
                 </div>
               </div>
+              )}
             </Formik>
           </div>
         </div>
