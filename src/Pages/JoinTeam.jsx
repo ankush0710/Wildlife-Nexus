@@ -35,7 +35,7 @@ const JoinTeam = () => {
     country: "",
     document: null,
     message: "",
-    terms: true,
+    terms: false,
   };
 
   // this method is for validate the inpit field and display error message
@@ -68,7 +68,7 @@ const JoinTeam = () => {
 
   // this method is to captured the input on click of a submit button
   const onSubmit = (values, { resetForm, setIsSubmit }) => {
-    console.log("Form Vlaue:", values);
+    console.log("join Team Form Value:", values);
 
     setTimeout(() => {
       toast.success("Form submitting successfully");
@@ -389,28 +389,25 @@ const JoinTeam = () => {
         >
           {/* card for Volunteers  */}
 
-          <div
-            id="cards-section"
-            className="w-full lg:w-1/2 px-3 mt-10"
-          >
+          <div id="cards-section" className="w-full lg:w-1/2 px-3 mt-10">
             <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
               Volunteers
             </h1>
-           <div className="flex flex-col gap-5 py-15 px-3">
-             {volunteerData.map((vd) => (
-              <div
-                id={vd.id}
-                style={{ backgroundImage: `url('${vd.bgImage}')` }}
-                className="relative w-full h-48 rounded-lg shadow-lg bg-cover bg-center"
-              >
-                <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
-                <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-body text-lg text-white font-semibold">
-                  <span className="text-2xl">{vd.volunteer}+ </span>{" "}
-                  {vd.country}
-                </p>
-              </div>
-            ))}
-           </div>
+            <div className="flex flex-col gap-5 py-15 px-3">
+              {volunteerData.map((vd) => (
+                <div
+                  id={vd.id}
+                  style={{ backgroundImage: `url('${vd.bgImage}')` }}
+                  className="relative w-full h-48 rounded-lg shadow-lg bg-cover bg-center"
+                >
+                  <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                  <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-body text-lg text-white font-semibold">
+                    <span className="text-2xl">{vd.volunteer}+ </span>{" "}
+                    {vd.country}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* form to where user enter thier details  */}
@@ -429,259 +426,261 @@ const JoinTeam = () => {
                 dirty,
                 isSubmit,
               }) => (
-                console.log("ERRORS", errors),
-                (
-                  <div id="contact-form" className="relative mt-10">
-                    <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
-                      Connect with Us
-                    </h1>
-                    <div
-                      id="contact-form"
-                      className="bg-[#BED4CB] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
-                    >
-                      <Form>
-                        <div className="md:flex md:gap-4">
-                          {/* input box for first name  */}
-                          <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
-                            <Field
-                              type="text"
-                              name="firstName"
-                              id="firstName"
-                              className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                              placeholder=""
-                            />
-                            <ErrorMessage
-                              name="firstName"
-                              component="div"
-                              className="text-red-500 text-sm mt-1"
-                            />
-                            <label
-                              htmlFor="firstName"
-                              className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                            >
-                              First Name
-                            </label>
-                          </div>
-
-                          {/* input box for last name  */}
-                          <div className="relative z-0 w-full mt-3 group md:flex-1">
-                            <Field
-                              type="text"
-                              name="lastName"
-                              id="lastName"
-                              className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                            />
-                            <ErrorMessage
-                              name="lastName"
-                              component="div"
-                              className="text-red-500 text-sm mt-1"
-                            />
-                            <label
-                              htmlFor="lastName"
-                              className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                            >
-                              Last Name
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="md:flex md:gap-4">
-                          {/* input box for primary phone number  */}
-                          <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
-                            <Field
-                              type="text"
-                              name="contactNumber[0]"
-                              id="primaryPhoneNumber"
-                              onInput={(e) =>
-                                (e.target.value = e.target.value.replace(
-                                  /[^0-9]/g,
-                                  "",
-                                ))
-                              }
-                              className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                            />
-                            <ErrorMessage
-                              name="contactNumber[0]"
-                              component="div"
-                              className="text-red-500 text-sm mt-1"
-                            />
-                            <label
-                              htmlFor="contactNumber[0]"
-                              className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                            >
-                              Contact Number
-                            </label>
-                          </div>
-
-                          {/* input box for secondaru phone number */}
-                          <div className="relative z-0 w-full mt-3 group md:flex-1">
-                            <Field
-                              type="text"
-                              name="contactNumber[1]"
-                              id="secondaryPhoneNumber"
-                              onInput={(e) =>
-                                (e.target.value = e.target.value.replace(
-                                  /[^0-9]/g,
-                                  "",
-                                ))
-                              }
-                              className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                            />
-                            <ErrorMessage
-                              name="contactNumber[1]"
-                              component="div"
-                              className="text-red-500 text-sm mt-1"
-                            />
-                            <label
-                              htmlFor="contactNumber[1]"
-                              className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-                            >
-                              Alternate Contact Number
-                            </label>
-                          </div>
-                        </div>
-
-                        {/* input box for email  */}
-                        <div className="relative z-0 w-full mb-5 mt-3 group">
+                // console.log("ERRORS", errors),
+                <div id="contact-form-container" className="relative mt-10">
+                  <h1 className="font-heading text-gray-600 text-3xl font-bold text-center">
+                    Connect with Us
+                  </h1>
+                  <div
+                    id="contact-form"
+                    className="bg-[#BED4CB] rounded-xl flex flex-col py-15 px-10 mx-3 my-10 relative md:w-auto lg:w-2xl md:shadow-lg"
+                  >
+                    <Form>
+                      <div className="md:flex md:gap-4">
+                        {/* input box for first name  */}
+                        <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
                           <Field
-                            type="email"
-                            name="email"
-                            id="email"
+                            type="text"
+                            name="firstName"
+                            id="firstName"
                             className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                            placeholder=""
                           />
                           <ErrorMessage
-                            name="email"
+                            name="firstName"
                             component="div"
                             className="text-red-500 text-sm mt-1"
                           />
                           <label
-                            htmlFor="email"
+                            htmlFor="firstName"
                             className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                           >
-                            Email
+                            First Name
                           </label>
                         </div>
 
-                        {/* dropdown for country  */}
-                        <div className="relative z-0 w-full mb-5 mt-3 group">
+                        {/* input box for last name  */}
+                        <div className="relative z-0 w-full mt-3 group md:flex-1">
                           <Field
-                            as="select"
-                            name="country"
-                            id="country"
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            placeholder=""
                             className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
-                          >
-                            <option
-                              value=""
-                              className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]"
-                            >
-                              Select Country
-                            </option>
-                            {Object.keys(countryDocumentMap).map((country) => {
-                              return (
-                                <>
-                                  <option
-                                    key={country}
-                                    value={country}
-                                    className="font-body text-md text-[#8A7650]"
-                                  >
-                                    {country}
-                                  </option>
-                                </>
-                              );
-                            })}
-                          </Field>
-
-                          <ErrorMessage
-                            name="country"
-                            component="div"
-                            className="text-red-500 text-sm mt-1"
-                          />
-                        </div>
-
-                        {values.country && (
-                          <div className="mb-5">
-                            <label className="block text-[#8A7650] font-semibold mb-2">
-                              Upload {countryDocumentMap?.[values.country]}
-                            </label>
-
-                            <input
-                              type="file"
-                              onChange={(e) => {
-                                setFieldValue(
-                                  "document",
-                                  e.currentTarget.files[0],
-                                );
-                              }}
-                              className="w-full border-2 border-[#8A7650] p-2 rounded"
-                            />
-
-                            <ErrorMessage
-                              name="document"
-                              component="div"
-                              className="text-red-500 text-sm mt-1"
-                            />
-                          </div>
-                        )}
-
-                        {/* message for query  */}
-                        <div className="relative z-0 w-full mb-5 mt-3 group">
-                          <Field
-                            as="textarea"
-                            id="message"
-                            name="message"
-                            rows="4"
-                            className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
-                            placeholder="Your Query for us ...."
                           />
                           <ErrorMessage
-                            name="message"
+                            name="lastName"
                             component="div"
                             className="text-red-500 text-sm mt-1"
-                          />
-                        </div>
-
-                        {/* checkbox for terms and condition  */}
-                        <div className="flex items-start mb-4 mt-3">
-                          <Field
-                            name="terms"
-                            id="default-checkbox"
-                            type="checkbox"
-                            className="w-8 h-8 border-2 border-[#562F00] rounded-xs"
                           />
                           <label
-                            htmlFor="default-checkbox"
-                            className="font-body select-none ms-2 text-sm font-medium text-[#562F00]"
+                            htmlFor="lastName"
+                            className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                           >
-                            By submitting this form, I agree to the collection
-                            and use my personla data as per the privacy Policy
-                            for marketing purpose.
+                            Last Name
                           </label>
+                        </div>
+                      </div>
+
+                      <div className="md:flex md:gap-4">
+                        {/* input box for primary phone number  */}
+                        <div className="relative z-0 w-full mb-5 mt-3 group md:flex-1">
+                          <Field
+                            type="text"
+                            name="contactNumber[0]"
+                            id="primaryPhoneNumber"
+                            placeholder=""
+                            onInput={(e) =>
+                              (e.target.value = e.target.value.replace(
+                                /[^0-9]/g,
+                                "",
+                              ))
+                            }
+                            className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                          />
                           <ErrorMessage
-                            name="terms"
+                            name="contactNumber[0]"
+                            component="div"
+                            className="text-red-500 text-sm mt-1"
+                          />
+                          <label
+                            htmlFor="contactNumber[0]"
+                            className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                          >
+                            Contact Number
+                          </label>
+                        </div>
+
+                        {/* input box for secondaru phone number */}
+                        <div className="relative z-0 w-full mt-3 group md:flex-1">
+                          <Field
+                            type="text"
+                            name="contactNumber[1]"
+                            id="secondaryPhoneNumber"
+                            placeholder=""
+                            onInput={(e) =>
+                              (e.target.value = e.target.value.replace(
+                                /[^0-9]/g,
+                                "",
+                              ))
+                            }
+                            className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                          />
+                          <ErrorMessage
+                            name="contactNumber[1]"
+                            component="div"
+                            className="text-red-500 text-sm mt-1"
+                          />
+                          <label
+                            htmlFor="contactNumber[1]"
+                            className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                          >
+                            Alternate Contact Number
+                          </label>
+                        </div>
+                      </div>
+
+                      {/* input box for email  */}
+                      <div className="relative z-0 w-full mb-5 mt-3 group">
+                        <Field
+                          type="email"
+                          name="email"
+                          id="email"
+                          className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                          placeholder=""
+                        />
+                        <ErrorMessage
+                          name="email"
+                          component="div"
+                          className="text-red-500 text-sm mt-1"
+                        />
+                        <label
+                          htmlFor="email"
+                          className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+                        >
+                          Email
+                        </label>
+                      </div>
+
+                      {/* dropdown for country  */}
+                      <div className="relative z-0 w-full mb-5 mt-3 group">
+                        <Field
+                          as="select"
+                          name="country"
+                          id="country"
+                          className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                        >
+                          <option
+                            value=""
+                            className="absolute font-body text-md text-[#8A7650] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]"
+                          >
+                            Select Country
+                          </option>
+                          {Object.keys(countryDocumentMap).map((country) => {
+                            return (
+                              <>
+                                <option
+                                  key={country}
+                                  value={country}
+                                  className="font-body text-md text-[#8A7650]"
+                                >
+                                  {country}
+                                </option>
+                              </>
+                            );
+                          })}
+                        </Field>
+
+                        <ErrorMessage
+                          name="country"
+                          component="div"
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      {values.country && (
+                        <div className="mb-5">
+                          <label className="block text-[#8A7650] font-semibold mb-2">
+                            Upload {countryDocumentMap?.[values.country]}
+                          </label>
+
+                          <input
+                            type="file"
+                            onChange={(e) => {
+                              setFieldValue(
+                                "document",
+                                e.currentTarget.files[0],
+                              );
+                            }}
+                            className="w-full border-2 border-[#8A7650] p-2 rounded"
+                          />
+
+                          <ErrorMessage
+                            name="document"
                             component="div"
                             className="text-red-500 text-sm mt-1"
                           />
                         </div>
+                      )}
 
-                        {/* form submitt button  */}
-                        <div className="absolute right-0 px-10">
-                          <button
-                            type="submit"
-                            disabled={!(isValid && dirty) || isSubmit}
-                            className={`px-8 py-2 rounded-full font-semibold border-2 
+                      {/* message for query  */}
+                      <div className="relative z-0 w-full mb-5 mt-3 group">
+                        <Field
+                          as="textarea"
+                          id="message"
+                          name="message"
+                          rows="4"
+                          className="bg-neutral-secondary-medium border-2 border-default-medium border-[#8A7650] text-md text-[#562F00] text-semibold trounded-base focus:ring-brand focus:outline-none focus:border-[#562F00] block w-full p-3.5 shadow-xs placeholder:text-body"
+                          placeholder="Your Query for us ...."
+                        />
+                        <ErrorMessage
+                          name="message"
+                          component="div"
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      {/* checkbox for terms and condition  */}
+                      <div className="flex items-start mb-4 mt-3">
+                        <Field
+                          name="terms"
+                          id="default-checkbox"
+                          type="checkbox"
+                          className="w-8 h-8 border-2 border-[#562F00] rounded-xs"
+                        />
+                        <label
+                          htmlFor="default-checkbox"
+                          className="font-body select-none ms-2 text-sm font-medium text-[#562F00]"
+                        >
+                          By submitting this form, I agree to the collection and
+                          use my personla data as per the privacy Policy for
+                          marketing purpose.
+                        </label>
+                        <ErrorMessage
+                          name="terms"
+                          component="div"
+                          className="text-red-500 text-sm mt-1"
+                        />
+                      </div>
+
+                      {/* form submitt button  */}
+                      <div className="absolute right-0 px-10">
+                        <button
+                          type="submit"
+                          disabled={!(isValid && dirty) || isSubmit}
+                          className={`px-8 py-2 rounded-full font-semibold border-2 
                                 ${
                                   !(isValid && dirty)
                                     ? "text-gray-500 font-semibold font-body bg-gray-300 border-2 border-gray-500 cursor-not-allowed"
                                     : "text-[#8A7650] font-semibold font-body bg-transparent border-2 border-[#8A7650] px-8 py-2 rounded-full hover:text-[#562F00] hover:bg-[#8A7650] hover:border-2 hover:border-[#562F00] hover:duration-600"
                                 }`}
-                          >
-                            {isSubmit ? "Submitting..." : "Submit"}
-                          </button>
-                        </div>
-                      </Form>
-                    </div>
+                        >
+                          {isSubmit ? "Submitting..." : "Submit"}
+                        </button>
+                      </div>
+                    </Form>
                   </div>
-                )
+                </div>
               )}
             </Formik>
 
