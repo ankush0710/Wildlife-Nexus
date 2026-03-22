@@ -42,25 +42,25 @@ const Footer = () => {
             Social Media
           </h1>
           <div className="flex gap-4">
-            <a href="#">
+            <a href="https://www.facebook.com/?hl=en">
               <FontAwesomeIcon
                 icon="fa-brands fa-facebook"
                 className="text-white text-lg border rounded-full p-2"
               />
             </a>
-            <a href="#">
+            <a href="https://x.com/?hl=en">
               <FontAwesomeIcon
                 icon="fa-brands fa-twitter"
                 className="text-white text-lg border rounded-full p-2"
               />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/?hl=en">
               <FontAwesomeIcon
                 icon="fa-brands fa-instagram"
                 className="text-white text-lg border rounded-full p-2"
               />
             </a>
-            <a href="#">
+            <a href="https://www.linkedin.com/in/ankushkurvey/">
               <FontAwesomeIcon
                 icon="fa-brands fa-linkedin"
                 className="text-white text-lg border rounded-full p-2"

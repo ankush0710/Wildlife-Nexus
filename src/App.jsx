@@ -12,6 +12,7 @@ import ContactUs from "./Pages/ContactUs";
 import Program from "./Pages/Program";
 import ProgramDetails from "./Pages/ProgramDetails";
 import Blog from "./Pages/Blog";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   library.add(faInstagram, faFacebook, faTwitter, faLinkedin, faCheck, faAngleDown, faArrowDown, faArrowRight, faArrowLeft, faQuoteLeft, faQuoteRight, faAngleRight, faAngleLeft, faHandPointLeft, faCheckDouble);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Program" element={<Program />} />
           <Route path="/Program/:id" element={<ProgramDetails />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       <Footer />
       </div>
