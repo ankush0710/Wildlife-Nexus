@@ -124,20 +124,7 @@ const Wildlife = () => {
       {/* button for back to default state  */}
       <section id="searchBar-section">
         <div className="mx-3 mb-5 flex justify-center items-end md:flex-row md:justify-between md:items-center md:mx-15">
-          {(search || catagory) && (
-            <button
-              onClick={handleBack}
-              className="flex justify-center items-center gap-2 cursor-pointer"
-            >
-              <FontAwesomeIcon
-                icon="fa-solid fa-hand-point-left"
-                className="text-2xl text-[#44A194]"
-              />
-              <span className="font-heading font-semibold text-2xl text-[#44A194]">
-                Back
-              </span>
-            </button>
-          )}
+          
 
           {/* //search bar and filter button */}
           <div

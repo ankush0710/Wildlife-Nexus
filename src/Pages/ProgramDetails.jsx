@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const PrgramDetails = () => {
   const { id } = useParams();
@@ -22,8 +23,23 @@ const PrgramDetails = () => {
   return (
     <>
       <div id="container" className="min-h-screen mx-3">
+
+        <Link to="/Program">
+            <button
+              className="flex justify-center items-center gap-2 cursor-pointer"
+            >
+              <FontAwesomeIcon
+                icon="fa-solid fa-hand-point-left"
+                className="text-2xl text-[#44A194]"
+              />
+              <span className="font-heading font-semibold text-2xl text-[#44A194]">
+                Back
+              </span>
+            </button>
+        </Link>
         {/* header section */}
-        <div id="heading" className="space-y-3 pt-10 pb-5">
+        <section id="heading">
+          <div id="heading" className="space-y-3 pt-10 pb-5">
           <h1 className="font-heading text-black text-3xl font-bold text-center md:text-5xl">
             {ProgramDetails.programName}
           </h1>
@@ -40,11 +56,13 @@ const PrgramDetails = () => {
             </span>
           </p>
         </div>
+        </section>
+
         <div className="border-b-2 border-gray-400 my-5 lg:hidden"></div>
 
         <div id="sub_conatainer" className="lg:mx-3 lg:my-10 lg:flex gap-20">
           {/* image and others details  */}
-          <div id="image_and_details">
+         <section id="image_and_details">
             <div
               id="image"
               className="w-full h-70 md:h-50 lg:w-lg md:h-96 md:shadow-xl"
@@ -87,13 +105,14 @@ const PrgramDetails = () => {
                 </span>
               </p>
             </div>
-          </div>
+         </section>
 
           {/* border line between image and description  */}
           <div className="border-r-2 border-gray-400"></div>
 
           {/* main description section*/}
-          <div id="description" className="my-5">
+          <section id="description">
+            <div className="my-5">
             <p className="font-body text-lg font-semibold">
               Description:-
               <span className="font-body font-medium ps-2">
@@ -101,10 +120,12 @@ const PrgramDetails = () => {
               </span>
             </p>
           </div>
+          </section>
         </div>
 
         {/* object and goals section */}
-        <div id="objective" className="mt-10 mb-5">
+        <section id="objective">
+          <div className="mt-10 mb-5">
           <h1 className="font-heading text-2xl pb-5 font-bold text-center">
             Objective and Goals
           </h1>
@@ -120,6 +141,7 @@ const PrgramDetails = () => {
             />
           </p>
         </div>
+        </section>
       </div>
     </>
   );
