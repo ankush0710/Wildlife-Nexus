@@ -443,7 +443,7 @@ const JoinTeam = () => {
                             type="text"
                             name="firstName"
                             id="firstName"
-                            className="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 border-default-medium border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] peer"
+                            className="block py-2.5 px-0 w-full text-md border-0 border-b-2 border-default-medium bg-transparent border-[#8A7650] appearance-none focus:outline-none focus:ring-0 focus:border-[#562F00] focus:bg-transparent peer"
                             placeholder=""
                           />
                           <ErrorMessage
