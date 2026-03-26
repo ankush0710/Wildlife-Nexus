@@ -58,7 +58,7 @@ const Navbar = () => {
 
           {/* For mobile view hammburger button will display*/}
           <button
-            id="bars-button"
+            data-testid="bars-button"
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -73,7 +73,7 @@ const Navbar = () => {
 
       {/* links for mobile view */}
       {isOpen && (
-        <div className="relative z-20 w-full h-[100vh] bg-[#111F35] py-10 transition duration-600 ease-in-out lg:hidden">
+        <div data-testid="mobile-nav" className="relative z-20 w-full h-[100vh] bg-[#111F35] py-10 transition duration-600 ease-in-out lg:hidden">
           {/* close button only when click on hamburger button  */}
           <button className="absolute top-4 right-4 text-white hover:text-[#FFC300] transition duration-300 lg:hidden">
             <FaXmark size={30} onClick={() => setIsOpen(false)} />
