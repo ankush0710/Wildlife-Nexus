@@ -62,10 +62,10 @@ describe("test cases for all routes of the navbar", () => {
 });
 
 describe("test case for onClick event on hamburger button", () => {
-//test case for checking whether navbar of mobile view will open onClick of a hambuger button or not
+  //test case for checking whether navbar of mobile view will open onClick of a hambuger button or not
 
-it("test case for checking on click event of a button", ()=>{
-    const {getByTestId} = renderWithRouter(<Navbar />);
+  it("test case for checking on click event of a button", () => {
+    const { getByTestId } = renderWithRouter(<Navbar />);
 
     //test scenario
     const btn = screen.getByTestId("bars-button");
@@ -73,6 +73,5 @@ it("test case for checking on click event of a button", ()=>{
 
     //expected result
     expect(screen.getByTestId("mobile-nav")).toBeInTheDocument();
-
-})
+  });
 });
