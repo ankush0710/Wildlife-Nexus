@@ -85,7 +85,7 @@ const Wildlife = () => {
   return (
     <>
       {/*bg image and intro of the page */}
-      <section id="bg-image">
+      <section data-testid="bg-image">
         <div className="w-full min-h-[100vh]">
           <div
             id="banner-image"
@@ -103,7 +103,7 @@ const Wildlife = () => {
       </section>
 
       {/* quote section for some quotes  */}
-      <section id="quote-section">
+      <section data-testid="quote-section">
         <div className="mb-10 border-t border-b border-gray-500 py-3 mx-10">
           <p className="text-[#44A194] text-lg font-semibold leading-relaxed text-center md:text-2xl">
             <FontAwesomeIcon
@@ -122,7 +122,7 @@ const Wildlife = () => {
       </section>
 
       {/* button for back to default state  */}
-      <section id="searchBar-section">
+      <section data-testid="searchBar-section">
         <div className="mx-3 mb-5 flex justify-between items-end md:flex-row md:justify-between md:items-center md:mx-15">
           
           {(search || catagory) && (
@@ -150,6 +150,7 @@ const Wildlife = () => {
           >
             <div className="relative mx-auto">
               <input
+                data-testid="searchInput"
                 type="text"
                 value={filteredSearch}
                 placeholder="Search by name"
@@ -157,6 +158,7 @@ const Wildlife = () => {
                 onChange={(e) => setFilteredSearch(e.target.value)}
               />
               <button
+               data-testid="button"
                 onClick={() => {
                   setSearch(filteredSearch);
                   setCurrentPage(1);
@@ -170,6 +172,7 @@ const Wildlife = () => {
             {/* dropdown for filter the cards by species  */}
             <div className="relative flex flex-col justify-center items-center">
               <div
+                data-testid="filterSearchBox"
                 onClick={() => setIsHidden(!isHidden)}
                 className="bg-gray-300 flex items-center gap-8 px-5 py-2 border border-gray-500 cursor-pointer"
               >
