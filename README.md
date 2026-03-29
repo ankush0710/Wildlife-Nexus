@@ -45,13 +45,13 @@ The purpose of creating this application is to motivate and awaken people to tak
 
 ## Built with
 
-**Frontend**: React.js
-**State Management**: Redux
-**Routing**: react-router
-**Styling**: TailwindCSS
-**Form**: Formik
-**Form Validation**: Yup Library
-**API Calls**: axios (For fetch api) **Unit Testing**: Vitest + React Testing-library
+- **Frontend**: React.js  
+- **State Management**: Redux  
+- **Routing**: react-router  
+- **Styling**: TailwindCSS  
+- **Form**: Formik  
+- **Form Validation**: Yup Library  
+- **API Calls**: axios (For fetch api) **Unit Testing**: Vitest + React Testing-library  
 
 
 ## Installation
