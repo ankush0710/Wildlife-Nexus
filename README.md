@@ -1,5 +1,4 @@
 # Wildlife Nexus
----
 
 Wildlife Nexus is a single page application built with react for animal conservation and wildlife protection.
 
@@ -7,7 +6,6 @@ The purpose of creating this application is to motivate and awaken people to tak
 
 
 ## Description
----
 
 - Wildlife Nexus is a single page application built in react.
 - As per the name the purpose of creating this application is to motivate people towards the wildlife protection.
@@ -19,93 +17,86 @@ The purpose of creating this application is to motivate and awaken people to tak
 
 
 ## Key Features :-
----
 
-#### Search Widlife Data
+**Search Widlife Data**  
 
     Easily search and explore different wildlife species.
 
-#### Blog Section
+**Blog Section**  
 
     Read informative blogs related to conservation and environment.
 
-#### API Integration
+**API Integration**  
 
     Fetch real-time wildlife data using APIs.
 
-#### Join Out Team
+**Join Out Team**  
 
     Users can connect and contribute to wildlife conservation efforts.
 
-#### Contact Form
+**Contact Form**  
 
     Get in touch via a fully validated form using Formik.
 
-#### Toast Notification
+**Toast Notification**  
 
     Instant feedback on user action.
 
 
 ## Built with
----
 
-- __Frontend__: React.js
-- __State Management__: Redux
-- __Routing__: react-router
-- __Styling__: TailwindCSS
-- __Form__: Formik
-- __Form Validation__: Yup Library
-- __API Calls__: axios (For fetch api)
-- __Unit Testing__: Vitest + React Testing-library
+**Frontend**: React.js
+**State Management**: Redux
+**Routing**: react-router
+**Styling**: TailwindCSS
+**Form**: Formik
+**Form Validation**: Yup Library
+**API Calls**: axios (For fetch api) **Unit Testing**: Vitest + React Testing-library
 
 
 ## Installation
----
 
 ### Pre-requsite
 
-- nodejs needs to installed in your system.
-    [link:- ](https://nodejs.org/en/download)
+- nodejs needs to installed in your system.  
+    [link]: https://nodejs.org/en/download
 
-- VS code or any IDE need to be installed.
-    [link:- ](https://code.visualstudio.com/download)
+- VS code or any IDE need to be installed.  
+    [link]: https://code.visualstudio.com/download
 
 ### Setup
 
-step-1:- You can clone my repository in our local system by using command:
-            `git clone https://github.com/ankush0710/Wildlife-Nexus.git`
+step-1:- You can clone my repository in our local system by using command:  
+`git clone https://github.com/ankush0710/Wildlife-Nexus.git`
 
-step-2:- Navigate the project folder:
-            `cd Wildlife-Nexus`
+step-2:- Navigate the project folder:  
+`cd Wildlife-Nexus`
 
-step-3:- Install all dependencies by using:
-        `npm install`
+step-3:- Install all dependencies by using:  
+`npm install`
 
-step-3:- Run the development server:
-        `npm run dev`
+step-3:- Run the development server:  
+`npm run dev`
 
-step-4:- For running all test cases:
-        `npm run test`
+step-4:- For running all test cases:  
+`npm run test`
 
 
 ## Future Enhancment
----
 
-- Add authentication (Login/Signup)
+- Add authentication (Login/Signup).
 - Wildlife map integration for see the wildlife perserve areas.
 - Implement AI chat bot to get instant answer for queries.
 - Connect with backend database to store user data.
 
 
-## Contribution 
----
+## Contribution
 
 Contributions are Welcome!
 Feel free to fork this repo and submitt pull request.
 
 
 ## Author
----
 
 Ankush Kurvey
 Frontend Developer
