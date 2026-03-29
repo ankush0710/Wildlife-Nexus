@@ -16,29 +16,29 @@ The purpose of creating this application is to motivate and awaken people to tak
 - We are in the mission of save as many as possible animal, bird and marine species. To save there life we can work continously and also motivate peoples to work with us.
 
 
-## Key Features :-
+## Key Features 
 
-**Search Widlife Data**  
+- **Search Widlife Data**  
 
     Easily search and explore different wildlife species.
 
-**Blog Section**  
+- **Blog Section**  
 
     Read informative blogs related to conservation and environment.
 
-**API Integration**  
+- **API Integration**  
 
     Fetch real-time wildlife data using APIs.
 
-**Join Out Team**  
+- **Join Out Team**  
 
     Users can connect and contribute to wildlife conservation efforts.
 
-**Contact Form**  
+- **Contact Form**  
 
     Get in touch via a fully validated form using Formik.
 
-**Toast Notification**  
+- **Toast Notification**  
 
     Instant feedback on user action.
 
