@@ -1,18 +1,113 @@
-# React + Vite
+# Wildlife Nexus
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Wildlife Nexus is a single page application built with react for animal conservation and wildlife protection.
 
-Currently, two official plugins are available:
+The purpose of creating this application is to motivate and awaken people to take a first step towards animal conservation and wildlife protection.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Description
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Wildlife Nexus is a single page application built in react.
+- As per the name the purpose of creating this application is to motivate people towards the wildlife protection.
+- Our goal is to know people about essential part the wildlife was in our life and how it is important to save them for our ecosystem also.
+- By the help of these application people not only know about wildlife conservation but also they will informed to us if any illigal activity will happen with the animals.
+- We are not bound to save the wildlife but also we take a step towards save of nature.
+- An individual can know about the program, can also join the team to contribute towards the wildlife conservation and contact for any query related to wildlife conservation through our application.
+- We are in the mission of save as many as possible animal, bird and marine species. To save there life we can work continously and also motivate peoples to work with us.
 
-Note: This will impact Vite dev & build performances.
 
-## Expanding the ESLint configuration
+## Key Features :-
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### Search Widlife Data
+
+    Easily search and explore different wildlife species.
+
+#### Blog Section
+
+    Read informative blogs related to conservation and environment.
+
+#### API Integration
+
+    Fetch real-time wildlife data using APIs.
+
+#### Join Out Team
+
+    Users can connect and contribute to wildlife conservation efforts.
+
+#### Contact Form
+
+    Get in touch via a fully validated form using Formik.
+
+#### Toast Notification
+
+    Instant feedback on user action.
+
+
+## Built with
+---
+
+- __Frontend__: React.js
+- __State Management__: Redux
+- __Routing__: react-router
+- __Styling__: TailwindCSS
+- __Form__: Formik
+- __Form Validation__: Yup Library
+- __API Calls__: axios (For fetch api)
+- __Unit Testing__: Vitest + React Testing-library
+
+
+## Installation
+---
+
+### Pre-requsite
+
+- nodejs needs to installed in your system.
+    [link:- ](https://nodejs.org/en/download)
+
+- VS code or any IDE need to be installed.
+    [link:- ](https://code.visualstudio.com/download)
+
+### Setup
+
+step-1:- You can clone my repository in our local system by using command:
+            `git clone https://github.com/ankush0710/Wildlife-Nexus.git`
+
+step-2:- Navigate the project folder:
+            `cd Wildlife-Nexus`
+
+step-3:- Install all dependencies by using:
+        `npm install`
+
+step-3:- Run the development server:
+        `npm run dev`
+
+step-4:- For running all test cases:
+        `npm run test`
+
+
+## Future Enhancment
+---
+
+- Add authentication (Login/Signup)
+- Wildlife map integration for see the wildlife perserve areas.
+- Implement AI chat bot to get instant answer for queries.
+- Connect with backend database to store user data.
+
+
+## Contribution 
+---
+
+Contributions are Welcome!
+Feel free to fork this repo and submitt pull request.
+
+
+## Author
+---
+
+Ankush Kurvey
+Frontend Developer
+
+***
